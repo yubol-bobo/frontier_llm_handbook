@@ -1,0 +1,21 @@
+{
+  "name": "frontier-llm-handbook",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "build": "node website/build.mjs",
+    "dev": "node website/serve.mjs",
+    "test": "node --test website/tests/*.test.mjs",
+    "check": "npm run build && npm test"
+  },
+  "dependencies": {
+    "esbuild": "0.28.2",
+    "markdown-it": "15.0.1",
+    "mermaid": "11.17.2",
+    "sanitize-html": "2.17.7"
+  }
+}

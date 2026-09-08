@@ -36,5 +36,11 @@ publish their manifest and recorded commits, not nested copies of those reposito
 - Update the relevant note, relationship evidence, knowledge tree and PROGRESS.md after a study session.
 - Existing GPU/cloud experiments are plans unless an execution record proves otherwise.
 - Use python tools/validate_learning_repo.py to check sources and documentation links before delivery.
+- The GitHub Pages website is generated from the existing Markdown corpus.
+  Keep ROADMAP and RESOURCE_ATLAS as canonical content rather than duplicating
+  course text in website code. Run npm run check for website or content changes.
+  Preview with npm run dev after a build; the server does not rebuild on edits.
+  Browser progress is personal localStorage data, never upload it to the repository.
+  GitHub Actions publishes successful main builds; PRs only build and check.
 - Do not auto-pull all upstream projects or treat their independent HEADs as a compatible environment.
 - The repository itself has no recurring automation; continue when the user requests further work.

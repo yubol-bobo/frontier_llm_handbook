@@ -8,6 +8,8 @@
 
 主仓库：[yubol-bobo/frontier_llm_handbook](https://github.com/yubol-bobo/frontier_llm_handbook)，主分支：`main`。后续学习笔记、实验与知识树在这里持续积累；本地工作目录目前保留名称 `frontier-llm-lab`。
 
+**[进入交互学习网站 →](https://yubol-bobo.github.io/frontier_llm_handbook/)** 按模块阅读、全文搜索、探索知识连接，动手调整训练公式，并保存个人笔记与验收记录。网站由本仓库资料生成，随 `main` 更新发布到 GitHub Pages；[网站开发说明](website/README.md)。
+
 ## 两条贯穿全程的学习目标
 
 - **端到端训练知识：**理解目标与预算、数据与 tokenizer、架构与规模实验、预训练与阶段训练、SFT/偏好优化/RL、推理、评估与发布之间的关系，能解释每个阶段的输入、输出、设计依据与取舍。
@@ -65,6 +67,8 @@ frontier-llm-lab/
 ├── COVERAGE.md                  知识覆盖深度与待补内容
 ├── curriculum/                 16 核心模块与 6 个前沿专题
 ├── lessons/                    带 worked example 的教学单元
+├── website/                    交互学习网站、内容生成与自动检查
+├── .github/workflows/          GitHub Pages 构建与发布
 ├── LEARNING_LIST.md              学习清单
 ├── KNOWLEDGE_TREE.md             概念知识树
 ├── REPO_RELATIONSHIPS.md         有证据的项目关系
