@@ -1,0 +1,107 @@
+{
+  "schema_version": 1,
+  "executed_at_utc": "2026-09-08T18:19:35.301674+00:00",
+  "python": "3.11.4",
+  "script_sha256": "9599b58f7608aa9621147e57cd0674f61406fa826ec6c9da5613f126193defb5",
+  "scope": "stdlib CPU arithmetic; no autograd, decoder, GPU or distributed execution",
+  "single_position": {
+    "logits": [
+      2.0,
+      1.0,
+      0.0
+    ],
+    "target": 1,
+    "probabilities": [
+      0.6652409557748218,
+      0.24472847105479764,
+      0.09003057317038046
+    ],
+    "loss": 1.4076059644443804,
+    "gradient": [
+      0.6652409557748218,
+      -0.7552715289452023,
+      0.09003057317038046
+    ],
+    "finite_difference_max_error": 1.7506329719196856e-11,
+    "learning_rate": 0.1,
+    "loss_after_step": 1.3073536372141146
+  },
+  "batch": {
+    "rows_target_mask": [
+      [
+        0,
+        1
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        0,
+        0
+      ]
+    ],
+    "effective_targets": 4,
+    "loss": 1.9076059644443806,
+    "gradient": [
+      0.4152409557748218,
+      0.24472847105479764,
+      -0.6599694268296196
+    ],
+    "finite_difference_max_error": 1.2036038832263785e-11,
+    "correct_partition_results": {
+      "uneven": {
+        "loss": 1.9076059644443806,
+        "gradient": [
+          0.4152409557748218,
+          0.24472847105479764,
+          -0.6599694268296196
+        ]
+      },
+      "balanced": {
+        "loss": 1.9076059644443806,
+        "gradient": [
+          0.4152409557748218,
+          0.24472847105479764,
+          -0.6599694268296196
+        ]
+      },
+      "masked_only_group": {
+        "loss": 1.9076059644443806,
+        "gradient": [
+          0.4152409557748218,
+          0.24472847105479764,
+          -0.6599694268296196
+        ]
+      }
+    },
+    "wrong_mean_of_means_loss": 1.4076059644443806,
+    "wrong_mean_of_means_gradient": [
+      0.16524095577482178,
+      0.24472847105479764,
+      -0.40996942682961957
+    ]
+  },
+  "checks_passed": [
+    "stable logit shift",
+    "single-position finite differences",
+    "toy gradient step reduces loss",
+    "batch finite differences",
+    "three weighted partitions agree",
+    "wrong reduction differs",
+    "ignored labels invariant",
+    "all-masked batch explicitly rejected"
+  ]
+}

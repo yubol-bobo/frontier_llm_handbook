@@ -1,6 +1,12 @@
 # Frontier LLM 知识树
 
-版本：v0.2，2026-09-08。来源：19 份局部源码笔记、一个 CPU 评分实验，以及 [超大模型训练全流程](handbook/00-end-to-end.md) 的源码 / 一手报告综合。机制理解与实际运行验证分别记录。
+版本：v0.3，2026-09-08。来源：19 份局部源码笔记、两个局部 CPU 实验，以及 [超大模型训练全流程](handbook/00-end-to-end.md) 的源码 / 一手报告综合。课程按 [ROADMAP](ROADMAP.md) 的 M00–M15 与 F01–F06 学习；下文按问题分支，不代表学习先后。覆盖深度与缺口见 [COVERAGE](COVERAGE.md)。
+
+## 新增的学习连接
+
+从 [首课](lessons/01-one-token-to-update.md) 可以看到同一个对象贯穿多层：交叉熵的有效 token 分母（M02）→ packing 与 masks（M03）→ 分布式梯度归约（M05）→ 轨迹 token 的 RL loss（M11/M13）。[实验 002](experiments/002-token-weighted-loss/README.md) 只验证其中的 CPU 数学关系，没有验证真实集群或 RL。
+
+多模态、蒸馏、新架构与持续学习放入 [前沿专题](curriculum/04-frontier-seminars.md)。它们已有学习问题与一级入口，不能据此宣称全部获得了本地源码或实验支持。
 
 ## 从模型诞生过程读取这棵树
 

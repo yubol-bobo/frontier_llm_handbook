@@ -1,8 +1,10 @@
 # 持续学习流程
 
+默认学习顺序由 [ROADMAP.md](ROADMAP.md) 统一定义。新读者先做 M00 诊断，复制 [个人进度模板](templates/learner-progress.md)；[PROGRESS.md](PROGRESS.md) 记录仓库维护者的实际工作，不是读者的课程成绩。原始项目编号只作索引。
+
 ## 每次学习的最小循环
 
-1. 读 [PROGRESS.md](PROGRESS.md)，只选一个主问题，例如“工具 token 为什么不能计算 policy loss”。
+1. 读当前课程模块与自己的进度；维护者另读 [PROGRESS.md](PROGRESS.md)。只选一个主问题，例如“被 mask 的目标为何不进入全局 token 分母”。
 2. 确认该仓库 SHA 与本次笔记一致；若源码已更新，保留旧证据并建立新的记录。
 3. 阅读调用方、实现、配置与一个相关测试。记录输入/输出 shape、对象拥有者、发生副作用的位置。
 4. 把事实、作者宣称、推断与未验证假设分开。引用固定 commit 和行号，避免仅链接不断变化的 main。
@@ -12,7 +14,7 @@
 
 ## 笔记标准
 
-采用 [项目笔记模板](templates/repository-note.md)。一份有效笔记应能回答：
+源码笔记采用 [项目笔记模板](templates/repository-note.md)，研究选择用 [决策模板](templates/research-decision.md)。一份有效笔记应能回答：
 
 - 这层系统消费什么、产生什么？
 - 谁拥有状态？谁能修改它？哪些内容被持久化？

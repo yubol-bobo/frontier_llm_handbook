@@ -2,6 +2,8 @@
 
 日期：2026-09-08。以下关系来自本次固定源码的 imports、配置、gitlink、adapter 或官方谱系说明；不是联合安装后的兼容性验证。
 
+学习者的先修图在 [ROADMAP](ROADMAP.md)，新补的课程与一级外部资源在 [RESOURCE_ATLAS](RESOURCE_ATLAS.md)。学习依赖、概念连接与软件依赖使用不同图；新增外部读物不表示本次已 clone 或集成该软件。
+
 新增 [训练全流程](handbook/00-end-to-end.md) 和 [跨层产物契约](notes/connections/end-to-end.md)：它们按数据、checkpoint、轨迹和权重版本连接研发阶段。那些概念箭头不新增此处的软件依赖；Marin 的 JAX / Levanter 路径与 Megatron / TorchTitan 路径可以对照研究，不能按图直接串成一个训练器。
 
 `A → B` 表示 A 使用 B；箭头标签说明是直接依赖、可选后端还是示例。虚线表示文档指向或谱系，不能当作运行时依赖。未连入此图的项目仍在 [概念知识树](KNOWLEDGE_TREE.md) 中。
