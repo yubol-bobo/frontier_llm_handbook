@@ -4,41 +4,42 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#0c0e14">
-  <meta name="description" content="前沿 LLM 端到端训练知识与工程能力：从数据、预训练到分布式系统、后训练与 Agent RL。按顺序学习一手资料，通过交互实验理解原理。">
+  <meta name="description" data-i18n-content="前沿 LLM 端到端训练知识与工程能力：从数据、预训练到分布式系统、后训练与 Agent RL。按顺序学习一手资料，通过交互实验理解原理。" content="前沿 LLM 端到端训练知识与工程能力：从数据、预训练到分布式系统、后训练与 Agent RL。按顺序学习一手资料，通过交互实验理解原理。">
   <title>Frontier LLM Handbook · 学习路径</title>
   <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="./assets/styles.css">
 </head>
 <body>
-  <a class="skip-link" href="#main-content">跳到主要内容</a>
+  <a class="skip-link" href="#main-content" data-i18n="跳到主要内容">跳到主要内容</a>
   <div class="app-shell">
-    <aside class="sidebar" id="sidebar" aria-label="主导航">
+    <aside class="sidebar" id="sidebar" aria-label="主导航" data-i18n-aria-label="主导航">
       <a class="brand" href="#/learn"><span class="brand-mark" aria-hidden="true">f<span>↗</span></span><span>frontier<small>LLM HANDBOOK</small></span></a>
-      <div class="side-label">WORKSPACE <span>学习空间</span></div>
+      <div class="side-label">WORKSPACE <span data-i18n="学习空间">学习空间</span></div>
       <nav id="navigation">
-        <a href="#/learn" data-nav="learn"><span data-icon="route" aria-hidden="true"></span>学习路径<span class="nav-active-dot"></span></a>
-        <a href="#/map" data-nav="map"><span data-icon="network" aria-hidden="true"></span>知识地图<span class="nav-active-dot"></span></a>
-        <a href="#/resources" data-nav="resources"><span data-icon="library" aria-hidden="true"></span>资源与手册<span class="nav-active-dot"></span></a>
-        <a href="#/lab" data-nav="lab"><span data-icon="flask" aria-hidden="true"></span>互动实验<span class="nav-active-dot"></span></a>
-        <a href="#/progress" data-nav="progress"><span data-icon="notebook" aria-hidden="true"></span>我的学习<span class="nav-active-dot"></span></a>
+        <a href="#/learn" data-nav="learn"><span data-icon="route" aria-hidden="true"></span><span data-i18n="学习路径">学习路径</span><span class="nav-active-dot"></span></a>
+        <a href="#/map" data-nav="map"><span data-icon="network" aria-hidden="true"></span><span data-i18n="知识地图">知识地图</span><span class="nav-active-dot"></span></a>
+        <a href="#/resources" data-nav="resources"><span data-icon="library" aria-hidden="true"></span><span data-i18n="资源与手册">资源与手册</span><span class="nav-active-dot"></span></a>
+        <a href="#/lab" data-nav="lab"><span data-icon="flask" aria-hidden="true"></span><span data-i18n="互动实验">互动实验</span><span class="nav-active-dot"></span></a>
+        <a href="#/progress" data-nav="progress"><span data-icon="notebook" aria-hidden="true"></span><span data-i18n="我的学习">我的学习</span><span class="nav-active-dot"></span></a>
       </nav>
       <div class="side-progress" id="side-progress"></div>
-      <div class="side-bottom"><a class="source-repository" href="https://github.com/yubol-bobo/frontier_llm_handbook" target="_blank" rel="noopener noreferrer"><span data-icon="git" aria-hidden="true"></span><span>开放的知识，共同构建<small>GitHub repository ↗</small></span></a><div class="side-settings"><span class="availability"><i></i>持续建设中</span><button id="theme-toggle" class="icon-button" type="button" aria-label="切换为浅色阅读主题" title="切换为浅色阅读主题"><span data-icon="sun" aria-hidden="true"></span></button></div></div>
+      <div class="side-bottom"><a class="source-repository" href="https://github.com/yubol-bobo/frontier_llm_handbook" target="_blank" rel="noopener noreferrer"><span data-icon="git" aria-hidden="true"></span><span><span data-i18n="开放的知识，共同构建">开放的知识，共同构建</span><small>GitHub repository ↗</small></span></a><div class="side-settings"><span class="availability"><i></i><span data-i18n="持续建设中">持续建设中</span></span><button id="theme-toggle" class="icon-button" type="button" aria-label="切换为浅色阅读主题" title="切换为浅色阅读主题"><span data-icon="sun" aria-hidden="true"></span></button></div></div>
     </aside>
     <div class="workspace">
       <header class="topbar">
-        <button class="menu-button icon-button" id="menu-toggle" type="button" aria-label="展开导航" aria-controls="sidebar" aria-expanded="false"><span data-icon="menu" aria-hidden="true"></span></button>
+        <button class="menu-button icon-button" id="menu-toggle" type="button" aria-label="展开导航" data-i18n-aria-label="展开导航" aria-controls="sidebar" aria-expanded="false"><span data-icon="menu" aria-hidden="true"></span></button>
         <div class="breadcrumb">Handbook <span>/</span> <b id="current-section">学习路径</b></div>
-        <form class="search-form" id="search-form" role="search"><label class="sr-only" for="global-search">搜索课程、概念与源码</label><span data-icon="search" aria-hidden="true"></span><input type="search" id="global-search" placeholder="探索一个概念…" autocomplete="off"><kbd>/</kbd></form>
-        <a class="topbar-link" href="#/lab">进入实验室 <span data-icon="arrow-up-right" aria-hidden="true"></span></a>
+        <form class="search-form" id="search-form" role="search"><label class="sr-only" for="global-search" data-i18n="搜索课程、概念与源码">搜索课程、概念与源码</label><span data-icon="search" aria-hidden="true"></span><input type="search" id="global-search" placeholder="探索一个概念…" data-i18n-placeholder="探索一个概念…" autocomplete="off"><kbd>/</kbd></form>
+        <label class="language-control"><span class="sr-only" data-i18n="界面与教材语言">界面与教材语言</span><select id="language-select" disabled aria-label="界面与教材语言" data-i18n-aria-label="界面与教材语言"><option value="zh" lang="zh-CN">中文</option><option value="en" lang="en">English</option></select></label>
+        <a class="topbar-link" href="#/lab"><span data-i18n="进入实验室">进入实验室</span> <span data-icon="arrow-up-right" aria-hidden="true"></span></a>
       </header>
-      <main id="main-content" tabindex="-1"><div class="initial-state"><h1>Frontier LLM Handbook</h1><p>正在加载学习资料…</p><a href="https://github.com/yubol-bobo/frontier_llm_handbook/blob/main/ROADMAP.md">在 GitHub 阅读完整学习路线 ↗</a></div></main>
-      <footer class="footer"><span>frontier <small>LLM HANDBOOK</small></span><span>开放知识 · 独立探索</span><a href="#/read/COVERAGE.md">内容覆盖与证据边界 ↗</a></footer>
+      <main id="main-content" tabindex="-1"><div class="initial-state"><h1>Frontier LLM Handbook</h1><p data-i18n="正在加载学习资料…">正在加载学习资料…</p><a href="https://github.com/yubol-bobo/frontier_llm_handbook/blob/main/ROADMAP.md" data-i18n="在 GitHub 阅读完整学习路线 ↗">在 GitHub 阅读完整学习路线 ↗</a></div></main>
+      <footer class="footer"><span>frontier <small>LLM HANDBOOK</small></span><span data-i18n="开放知识 · 独立探索">开放知识 · 独立探索</span><a href="#/read/COVERAGE.md" data-i18n="内容覆盖与证据边界 ↗">内容覆盖与证据边界 ↗</a></footer>
     </div>
   </div>
   <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
   <div id="reading-progress" class="reading-progress" aria-hidden="true" hidden><span></span></div>
-  <noscript><p class="noscript">互动学习需要启用 JavaScript。完整教材也可在 <a href="https://github.com/yubol-bobo/frontier_llm_handbook">GitHub 资料库</a> 阅读。</p></noscript>
+  <noscript><p class="noscript">互动学习需要启用 JavaScript。完整教材也可在 <a href="https://github.com/yubol-bobo/frontier_llm_handbook">GitHub 资料库</a> 阅读。</p><p class="noscript" lang="en">Interactive learning requires JavaScript. You can also read the <a href="https://github.com/yubol-bobo/frontier_llm_handbook/tree/main/translations/en">English materials on GitHub</a>.</p></noscript>
   <script type="module" src="./assets/app.js"></script>
 </body>
 </html>

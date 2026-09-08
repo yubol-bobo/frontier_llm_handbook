@@ -1,3 +1,4 @@
+import {t,ui} from './i18n.mjs';
 import {icon,relationEdges,curveBetween} from './design.mjs';
 
 export function initializeTheme(onChange=()=>{}){
@@ -5,7 +6,7 @@ export function initializeTheme(onChange=()=>{}){
   const apply=theme=>{
     document.documentElement.dataset.theme=theme;
     const button=document.getElementById('theme-toggle');
-    const label=theme==='dark'?'切换为浅色阅读主题':'切换为深色阅读主题';
+    const label=theme==='dark'?t('切换为浅色阅读主题'):t('切换为深色阅读主题');
     button.innerHTML=icon(theme==='dark'?'sun':'moon');
     button.setAttribute('aria-label',label);button.title=label;
     document.querySelector('meta[name="theme-color"]').content=theme==='dark'?'#0d0f16':'#f7f8fc';
@@ -16,6 +17,7 @@ export function initializeTheme(onChange=()=>{}){
     const next=document.documentElement.dataset.theme==='dark'?'light':'dark';
     apply(next);try{localStorage.setItem(key,next);}catch{}onChange(next);
   });
+  return ()=>apply(document.documentElement.dataset.theme);
 }
 
 export function observeReading(root){

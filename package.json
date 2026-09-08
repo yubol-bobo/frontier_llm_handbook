@@ -20,5 +20,8 @@
     "markdown-it": "15.0.1",
     "mermaid": "11.17.2",
     "sanitize-html": "2.17.7"
+  },
+  "devDependencies": {
+    "acorn": "8.18.0"
   }
 }

@@ -1,6 +1,7 @@
+import {t,ui} from './i18n.mjs';
 export const statuses={new:'未开始',learning:'学习中',reviewed:'已自主验收'};
 export function tokenStep(logits,target,rate=0.1) {
-  if(logits.length!==3 || logits.some(v=>!Number.isFinite(v)||Math.abs(v)>10000) || !Number.isInteger(target)||target<0||target>2 || !Number.isFinite(rate)||rate<0||rate>10) throw new Error('请使用有限数值：logit 绝对值不超过 10000，学习率为 0–10。');
+  if(logits.length!==3 || logits.some(v=>!Number.isFinite(v)||Math.abs(v)>10000) || !Number.isInteger(target)||target<0||target>2 || !Number.isFinite(rate)||rate<0||rate>10) throw new Error(t('请使用有限数值：logit 绝对值不超过 10000，学习率为 0–10。'));
   const max=Math.max(...logits), exps=logits.map(v=>Math.exp(v-max)),sum=exps.reduce((a,b)=>a+b,0);
   const probabilities=exps.map(v=>v/sum),loss=(max-logits[target])+Math.log(sum);
   const gradient=probabilities.map((v,i)=>v-Number(i===target));
@@ -11,7 +12,7 @@ export function tokenStep(logits,target,rate=0.1) {
 }
 export const partitions={uneven:[[0],[1,2,3,4,5]],balanced:[[0,1],[2,3,4,5]],empty:[[0,1,2,3],[4,5]]};
 export function batchComparison(logits,masks=[1,1,1,1,0,0],partition='uneven') {
-  if(masks.length!==6 || masks.some(x=>x!==0&&x!==1)||!partitions[partition]) throw new Error('无效的 mask 或分组。');
+  if(masks.length!==6 || masks.some(x=>x!==0&&x!==1)||!partitions[partition]) throw new Error(t('无效的 mask 或分组。'));
   const targets=[0,2,2,2,1,0];
   const rows=targets.map(t=>tokenStep(logits,t,0));
   const count=masks.reduce((a,b)=>a+b,0);
@@ -25,11 +26,11 @@ export function batchComparison(logits,masks=[1,1,1,1,0,0],partition='uneven') {
 }
 export function emptyProgress(){return {schemaVersion:1,modules:{},lastModule:null};}
 export function validateProgress(value) {
-  if(!value || value.schemaVersion!==1 || typeof value.modules!=='object' || value.modules===null || Array.isArray(value.modules))throw new Error('无法识别学习记录格式。');
+  if(!value || value.schemaVersion!==1 || typeof value.modules!=='object' || value.modules===null || Array.isArray(value.modules))throw new Error(t('无法识别学习记录格式。'));
   const result=emptyProgress();
   for(const [id,item] of Object.entries(value.modules)) {
-    if(!/^M(?:0\d|1[0-5])$/.test(id)||!item||!Object.hasOwn(statuses,item.status)||typeof item.note!=='string'||item.note.length>20000||typeof item.evidence!=='string'||item.evidence.length>5000)throw new Error('学习记录包含无效模块或内容。');
-    if(item.status==='reviewed'&&!item.evidence.trim())throw new Error('自主验收需要保留证据说明。');
+    if(!/^M(?:0\d|1[0-5])$/.test(id)||!item||!Object.hasOwn(statuses,item.status)||typeof item.note!=='string'||item.note.length>20000||typeof item.evidence!=='string'||item.evidence.length>5000)throw new Error(t('学习记录包含无效模块或内容。'));
+    if(item.status==='reviewed'&&!item.evidence.trim())throw new Error(t('自主验收需要保留证据说明。'));
     result.modules[id]={status:item.status,note:item.note,evidence:item.evidence,updated:typeof item.updated==='string'?item.updated:''};
   }
   result.lastModule=/^M(?:0\d|1[0-5])$/.test(value.lastModule||'')?value.lastModule:null;

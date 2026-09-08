@@ -41,7 +41,7 @@ def main():
 
     # Walk only the learning corpus, never recurse into the upstream source trees.
     documents = sorted(ROOT.glob("*.md"))
-    for folder in ("curriculum", "handbook", "lessons", "notes", "templates", "experiments"):
+    for folder in ("curriculum", "handbook", "lessons", "notes", "templates", "experiments", "translations"):
         documents.extend(sorted((ROOT / folder).rglob("*.md")))
     local_links = 0
     permalinks = 0

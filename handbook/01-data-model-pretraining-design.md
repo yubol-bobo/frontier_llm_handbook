@@ -56,7 +56,7 @@
 
 冻结词表文件、规范化规则、BOS/EOS/PAD 的 ID 与含义，并检查 tokenizer 的文档长度配置和模型位置范围不是混为一谈。后续追加特殊 token 会影响模型形状及新行初始化，必须是显式迁移，而非无记录地替换文件。
 
-【公开事实】OLMo-core 分开表示词表大小、EOS、PAD 和可选 BOS，并提供 `padded_vocab_size`，默认把 embedding 维度向上补至 128 的倍数以改善吞吐。补齐后的模型行数不等于新增真实词元；具体对齐值是实现选择。[OLMo tokenizer 配置](https://github.com/allenai/OLMo-core/blob/92870a33c3fee060d57c3faec52b0b369ece85a6/src/olmo_core/data/tokenizer.py#L48-L107)
+【公开事实】OLMo-core 分开表示词表大小、EOS、PAD 和可选 BOS，并提供 `padded_vocab_size`，默认把 embedding 表的词表维度向上补至 128 的倍数以改善吞吐。补齐后的模型行数不等于新增真实词元；具体对齐值是实现选择。[OLMo tokenizer 配置](https://github.com/allenai/OLMo-core/blob/92870a33c3fee060d57c3faec52b0b369ece85a6/src/olmo_core/data/tokenizer.py#L48-L107)
 
 **权衡与故障信号：**某语言长度异常膨胀；特殊 token 在普通内容中被误解释；PAD 与 EOS 处理冲突；数据 ID 越界。**通过条件：**边界样本和往返行为已定义，所有数据分片与模型引用同一 tokenizer 版本，指标比较口径一致。
 

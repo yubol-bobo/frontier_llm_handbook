@@ -1,6 +1,6 @@
 # Learning repository workflow
 
-This is a Chinese-language, source-grounded public curriculum and resource handbook
+This is a bilingual Chinese-English, source-grounded public curriculum and resource handbook
 for frontier LLM end-to-end training knowledge and engineering foundations and
 advancement. It serves beginners and practitioners, especially learners without
 access to frontier labs. Start with README.md, ROADMAP.md,
@@ -41,6 +41,10 @@ publish their manifest and recorded commits, not nested copies of those reposito
   course text in website code. Run npm run check for website or content changes.
   Preview with npm run dev after a build; the server does not rebuild on edits.
   Browser progress is personal localStorage data, never upload it to the repository.
+  Chinese source documents remain canonical; maintain their English counterparts
+  in translations/en and update the source hash manifest after reviewing changes.
+  Preserve code identifiers, fixed citations, numerical examples, and legacy heading
+  anchors across languages. See translations/README.md and GLOSSARY.md for conventions.
   GitHub Actions publishes successful main builds; PRs only build and check.
 - Do not auto-pull all upstream projects or treat their independent HEADs as a compatible environment.
 - The repository itself has no recurring automation; continue when the user requests further work.

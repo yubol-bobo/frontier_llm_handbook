@@ -2,13 +2,15 @@
 
 **本学习资料旨在系统提供前沿 LLM 的端到端训练知识，帮助学习者建立工程能力基础，并逐步提升到能够实现、验证、诊断和改进训练系统。**
 
-面向希望进入这一领域的初学者，以及希望深化训练与系统能力的工程师、研究者，尤其是没有机会进入 frontier lab 的学习者。以公开的一手论文、源码、训练配方和运行记录为依据，将数据、模型设计、预训练、后训练、推理与评估连接成有先修、有练习、有验收的中文学习路线。
+面向希望进入这一领域的初学者，以及希望深化训练与系统能力的工程师、研究者，尤其是没有机会进入 frontier lab 的学习者。以公开的一手论文、源码、训练配方和运行记录为依据，将数据、模型设计、预训练、后训练、推理与评估连接成有先修、有练习、有验收的中英双语学习路线。
 
 创建日期：2026-09-08。课程 v0.1：**16 个核心模块、6 个前沿专题、19 个固定源码仓库**，配合外部一级资源、五篇全流程讲解和可运行首课。课程设计、实际源码审读和已执行实验分别标记；完整覆盖地图与待补内容公开维护。
 
 主仓库：[yubol-bobo/frontier_llm_handbook](https://github.com/yubol-bobo/frontier_llm_handbook)，主分支：`main`。后续学习笔记、实验与知识树在这里持续积累；本地工作目录目前保留名称 `frontier-llm-lab`。
 
 **[进入交互学习网站 →](https://yubol-bobo.github.io/frontier_llm_handbook/)** 按模块阅读、全文搜索、探索知识连接，动手调整训练公式，并保存个人笔记与验收记录。网站由本仓库资料生成，随 `main` 更新发布到 GitHub Pages；[网站开发说明](website/README.md)。
+
+[中文网站](https://yubol-bobo.github.io/frontier_llm_handbook/?lang=zh#/learn) · [English website](https://yubol-bobo.github.io/frontier_llm_handbook/?lang=en#/learn)。顶部可切换界面与全部站内教材语言，个人记录共用；[中英术语表](GLOSSARY.md)。
 
 ## 两条贯穿全程的学习目标
 
