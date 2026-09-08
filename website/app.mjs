@@ -223,6 +223,7 @@ main.addEventListener('submit',event=>{
 });
 document.getElementById('search-form').addEventListener('submit',event=>{event.preventDefault();location.hash='#/search?q='+encodeURIComponent(document.getElementById('global-search').value.trim());});
 document.getElementById('menu-toggle').addEventListener('click',()=>{const open=document.getElementById('sidebar').classList.toggle('open');document.getElementById('menu-toggle').setAttribute('aria-expanded',String(open));});
+document.querySelector('.skip-link').addEventListener('click',event=>{event.preventDefault();main.focus({preventScroll:true});window.scrollTo(0,0);});
 document.addEventListener('keydown',event=>{
   if(event.key==='/'&&!['INPUT','TEXTAREA','SELECT'].includes(document.activeElement.tagName)){event.preventDefault();document.getElementById('global-search').focus();}
   if(event.key==='Escape'){document.getElementById('sidebar').classList.remove('open');document.getElementById('menu-toggle').setAttribute('aria-expanded','false');}
