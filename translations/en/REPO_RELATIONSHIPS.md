@@ -102,4 +102,16 @@ Compatibility findings in this round come from source code and configuration, no
 
 ## Out-of-scope nodes
 
-SkyRL, vLLM, nanotron, datatrove, Tinker Cookbook, TRL/PEFT, DeepSpeed, Ray, and others are external connections encountered during reading; they are not counted among this round's 19 independent clones, and not all third-party dependencies were recursively cloned. SkyRL and nanotron are priority candidates for future expansion because they supply the runner code missing from APEX and SmolLM, respectively.
+SkyRL, vLLM, nanotron, datatrove, Tinker Cookbook, TRL/PEFT, DeepSpeed, Ray, and others are external connections encountered during reading; they are not counted among this round's 20 independent clones, and not all third-party dependencies were recursively cloned. SkyRL and nanotron are priority candidates for future expansion because they supply the runner code missing from APEX and SmolLM, respectively.
+
+<a id="claude-code--agent-sdk-的两类连接"></a>
+
+## Two kinds of Claude Code / Agent SDK connections
+
+| Target | Relationship and evidence | Learning purpose |
+|---|---|---|
+| Python Agent SDK → Claude Code CLI | Direct runtime dependency; the [pinned source note](notes/repositories/claude-agent-sdk.md) traces CLI discovery, stream-json, and bidirectional control responses | The boundary between SDK integration and the internal CLI harness |
+| Claude Code ↔ Pi / DeepSeek Harness | Conceptual correspondence in the [comparative guide](handbook/05-claude-code-harness.md), not evidence of a package dependency | Compare context, tool events, recovery, and permissions |
+| Claude Code ↔ Harbor / APEX / RL | A curriculum connection; no adapter implemented | Score tasks independently and separately retain training tokens / logprobs / masks / versions |
+
+Historical mirrors are recorded separately by provenance and commit as research evidence. They are not counted as independent official source checkouts or treated as verified SDK-compatible versions.

@@ -13,14 +13,14 @@
 | 项目 | 已完成 | 未完成 |
 |---|---|---|
 | 学习仓库 | 本地 Git、GitHub 主仓库、学习清单、方法与模板 | 后续学习持续更新此主仓库 |
-| 交互网站 | 中英双语界面与 51 篇资料、术语对照、深浅主题、课程卡片、阅读跟踪、动态知识关联、数学互动实验、本地笔记与备份，GitHub Pages 发布 | 更多教学单元、真实模型实验与学习者反馈 |
-| 源码获取 | 19/19 shallow clones，固定 SHA，源码索引 | 完整历史、submodules、LFS 大文件、权重与数据未下载 |
-| 源码阅读 | 19/19 项目完成至少一条实现/配置链路初读 | 全仓库阅读与运行验证 |
-| 跨项目关系 | 5 份连接专题、关系总表、概念知识树 v0.3 | 各依赖组合的实际安装兼容性 |
+| 交互网站 | 中英双语界面与 54 篇资料、术语对照、深浅主题、课程卡片、阅读跟踪、动态知识关联、数学互动实验、本地笔记与备份，GitHub Pages 发布 | 更多教学单元、真实模型实验与学习者反馈 |
+| 源码获取 | 20/20 shallow clones，固定 SHA，源码索引 | 完整历史、submodules、LFS 大文件、权重与数据未下载 |
+| 源码阅读 | 20/20 项目完成至少一条实现/配置链路初读 | 全仓库阅读与运行验证 |
+| 跨项目关系 | 5 份连接专题、关系总表、概念知识树 v0.4 | 各依赖组合的实际安装兼容性 |
 | 全流程研究 | 总章 + 数据设计、分布式运行、后训练详章 + Marin 535B 案例 | 完整训练执行、独立复现作者成绩与闭源配方 |
 | 公开课程 | M00–M15 共 16 核心模块、32 项练习设计，F01–F06 研读设计 | 各模块更多完整 lesson、习题答案和实际执行 |
 | 入门教学 | 首课：概率、手写梯度、mask、全局 token 平均 | 自动微分与完整 decoder 的教学实验 |
-| 实验 | 2 个本地 CPU 实验，脚本与结果保存 | 模型 API、Docker、GPU、完整 RL 训练 |
+| 实验 | 3 个本地 CPU 实验，脚本与结果保存 | 模型 API、Docker、GPU、完整 RL 训练 |
 
 ## 逐仓库进度
 
@@ -47,6 +47,7 @@
 | 17 | [SGLang](notes/repositories/sglang.md) | L1：scheduler、cache、DeepEP/GEMM 入口 | 共享前缀实验待执行 |
 | 18 | [DeepGEMM](notes/repositories/deepgemm.md) | L1：JIT、布局、Mega MoE benchmark | 支持硬件上的内核实验待执行 |
 | 19 | [DeepEP](notes/repositories/deepep.md) | L1：V2 Buffer、dispatch/combine、stream | 多 GPU 通信实验待执行 |
+| 20 | [Claude Code / Agent SDK](notes/repositories/claude-agent-sdk.md) | L1：CLI transport、权限回调、输入流生命周期；外部历史快照局部审读 | 自有 CPU 状态机已执行；真实 Claude、SDK 集成与故障恢复待测 |
 
 ## 下一次从这里继续
 
@@ -80,6 +81,7 @@
 
 ## 已保存的学习记录
 
+- [Claude Code harness：源码、历史快照与 CPU 状态机](notes/sessions/2026-09-08-claude-code-harness.md)
 - [中英双语网站与术语校核](notes/sessions/2026-09-08-bilingual-website.md)
 - [网站视觉与交互升级](notes/sessions/2026-09-08-website-redesign.md)
 - [交互学习网站建设](notes/sessions/2026-09-08-website.md)

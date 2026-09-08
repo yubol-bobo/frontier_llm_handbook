@@ -84,6 +84,9 @@
 
 **交付物：** `m12/task-contract.md`、状态分类表、轨迹 fixture、数据 schema 与可重评分 artifacts。**工时：** 主线 16–28 小时；真实模型／沙箱升级另计 10–20 小时。**下一步：** 先将一个任务接回 M11 同步循环，再研究 M13 的并发。
 
+
+**Claude Code 进阶单元：** 在 Pi 初读之后进入 [完整讲解](../handbook/05-claude-code-harness.md) 和 [固定 SDK / 历史快照](../notes/repositories/claude-agent-sdk.md)，按执行循环 → 上下文 → 权限 → 恢复 → 评估学习。运行 [CPU 状态机实验](../experiments/harness-state-machine/README.md)，交付拒绝调用、预算耗尽和未知执行结果三种 trace，再讨论哪些字段必须进入 M13 的训练轨迹。
+
 <a id="m13"></a>
 
 ## M13｜异步 agent RL 与一致性：吞吐增长不能掩盖训练语义变化

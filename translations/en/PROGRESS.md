@@ -17,14 +17,14 @@ Main repository: [yubol-bobo/frontier_llm_handbook](https://github.com/yubol-bob
 | Item | Completed | Not completed |
 |---|---|---|
 | Learning repository | Local Git, main GitHub repository, study index, methods, and templates | Continue updating this main repository as study progresses |
-| Interactive website | Chinese–English interface and 51 documents, terminology table, light/dark themes, course cards, reading tracking, dynamic knowledge connections, interactive mathematics experiments, local notes and backups, GitHub Pages deployment | More instructional units, actual model experiments, and learner feedback |
-| Source acquisition | 19/19 shallow clones, pinned SHAs, source index | Full history, submodules, large LFS files, weights, and data have not been downloaded |
-| Source reading | Initial reading of at least one implementation/configuration path for 19/19 projects | Whole-repository reading and runtime validation |
-| Cross-project relationships | 5 connection topics, relationship index, conceptual knowledge tree v0.3 | Actual installation compatibility for dependency combinations |
+| Interactive website | Chinese–English interface and 54 documents, terminology table, light/dark themes, course cards, reading tracking, dynamic knowledge connections, interactive mathematics experiments, local notes and backups, GitHub Pages deployment | More instructional units, actual model experiments, and learner feedback |
+| Source acquisition | 20/20 shallow clones, pinned SHAs, source index | Full history, submodules, large LFS files, weights, and data have not been downloaded |
+| Source reading | Initial reading of at least one implementation/configuration path for 20/20 projects | Whole-repository reading and runtime validation |
+| Cross-project relationships | 5 connection topics, relationship index, conceptual knowledge tree v0.4 | Actual installation compatibility for dependency combinations |
 | Full-process research | Overview + detailed chapters on data design, distributed operations, and post-training + Marin 535B case study | Complete training execution, independent reproduction of authors' results, and closed-source recipes |
 | Public curriculum | 16 core modules M00–M15, 32 exercise designs, F01–F06 seminar designs | More complete lessons, exercise answers, and actual execution for each module |
 | Introductory teaching | First lesson: probability, manually implemented gradients, masks, global token averaging | Instructional experiments for automatic differentiation and a complete decoder |
-| Experiments | 2 local CPU experiments, with scripts and results saved | Model APIs, Docker, GPUs, complete RL training |
+| Experiments | 3 local CPU experiments, with scripts and results saved | Model APIs, Docker, GPUs, complete RL training |
 
 <a id="逐仓库进度"></a>
 
@@ -53,6 +53,7 @@ Main repository: [yubol-bobo/frontier_llm_handbook](https://github.com/yubol-bob
 | 17 | [SGLang](notes/repositories/sglang.md) | L1: scheduler, cache, DeepEP/GEMM entry points | Shared-prefix experiment pending |
 | 18 | [DeepGEMM](notes/repositories/deepgemm.md) | L1: JIT, layouts, Mega MoE benchmark | Kernel experiment on supported hardware pending |
 | 19 | [DeepEP](notes/repositories/deepep.md) | L1: V2 Buffer, dispatch/combine, streams | Multi-GPU communication experiment pending |
+| 20 | [Claude Code / Agent SDK](notes/repositories/claude-agent-sdk.md) | L1: CLI transport, permission callbacks, input-stream lifecycle; targeted external historical snapshot reading | Original CPU state machine executed; real Claude, SDK integration, and recovery remain untested |
 
 <a id="下一次从这里继续"></a>
 
@@ -92,6 +93,7 @@ These do not prevent continued code reading or independent CPU experiments; they
 
 ## Saved study records
 
+- [Claude Code harness: source, historical snapshot, and CPU state machine](https://github.com/yubol-bobo/frontier_llm_handbook/blob/main/notes/sessions/2026-09-08-claude-code-harness.md)
 - [Bilingual website and terminology review](https://github.com/yubol-bobo/frontier_llm_handbook/blob/main/notes/sessions/2026-09-08-bilingual-website.md)
 - [Website visual and interaction upgrade](https://github.com/yubol-bobo/frontier_llm_handbook/blob/main/notes/sessions/2026-09-08-website-redesign.md)
 - [Interactive learning website development](https://github.com/yubol-bobo/frontier_llm_handbook/blob/main/notes/sessions/2026-09-08-website.md)

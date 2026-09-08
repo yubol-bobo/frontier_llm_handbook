@@ -4,7 +4,7 @@
 
 It is for beginners entering the field and engineers and researchers seeking deeper training and systems skills, especially learners without access to a frontier lab. Drawing on public primary papers, source code, training recipes, and run records, it connects data, model design, pretraining, post-training, inference, and evaluation into a bilingual Chinese–English learning path with prerequisites, exercises, and completion criteria.
 
-Created: 2026-09-08. Curriculum v0.1: **16 core modules, 6 frontier topics, and 19 pinned source repositories**, supported by external primary resources, five end-to-end explanatory chapters, and a runnable first lesson. Curriculum design, actual source review, and executed experiments are labeled separately; the full coverage map and remaining gaps are maintained publicly.
+Created: 2026-09-08. Curriculum v0.1: **16 core modules, 6 frontier topics, and 20 pinned source repositories**, supported by external primary resources, five end-to-end explanatory chapters, and a runnable first lesson. Curriculum design, actual source review, and executed experiments are labeled separately; the full coverage map and remaining gaps are maintained publicly.
 
 Main repository: [yubol-bobo/frontier_llm_handbook](https://github.com/yubol-bobo/frontier_llm_handbook), primary branch: `main`. Learning notes, experiments, and the knowledge tree will continue to accumulate here; the local working directory currently retains the name `frontier-llm-lab`.
 
@@ -32,7 +32,7 @@ Every module must answer both “Why train this way?” and “How do we impleme
 | [Knowledge coverage and gaps](COVERAGE.md) | Distinguish curriculum design, instructional explanations, source review, measurements, and material that is not public |
 | [First lesson: from one token to one update](lessons/01-one-token-to-update.md) | Understand probability, loss, gradients, masks, and normalization across shards on an ordinary computer |
 | [Training a very large LLM from scratch: the full process](handbook/00-end-to-end.md) | From objectives, data, and scaling pilots to distributed pretraining, agent RL, and release; includes four detailed chapters |
-| [Repository study index](LEARNING_LIST.md) | Registration numbers and source notes for 19 pinned projects; the numbers do not indicate prerequisite order |
+| [Repository study index](LEARNING_LIST.md) | Registration numbers and source notes for 20 pinned projects; the numbers do not indicate prerequisite order |
 | [Knowledge tree](KNOWLEDGE_TREE.md) | Projects organized by concept: from tasks and data to training, scheduling, and GPU kernels |
 | [Repository relationship map](REPO_RELATIONSHIPS.md) | Distinguish actual dependencies, optional backends, example integrations, project lineage, and conceptual correspondences |
 | [Content development and maintainer progress](PROGRESS.md) | What this repository has actually completed; readers use a separate learning record template |
@@ -60,8 +60,8 @@ Each core module includes prerequisites and a skip assessment, ordered reading, 
 
 ## Current results
 
-- 19/19 repositories cloned, all with recorded origins and pinned SHAs.
-- 19 initial project reading notes, each tracing at least one concrete code/configuration path; these are not whole-repository audits or claims of having “finished learning.”
+- 20/20 repositories cloned, all with recorded origins and pinned SHAs.
+- 20 initial project reading notes, each tracing at least one concrete code/configuration path; these are not whole-repository audits or claims of having “finished learning.”
 - Further detail on Pi's low-level agent loop and selected task/scoring interfaces in Harbor Cookbook.
 - Executed [Experiment 001: Harbor multidimensional rewards](experiments/001-harbor-reward-contract/README.md) and [Experiment 002: token loss and gradient normalization](experiments/002-token-weighted-loss/README.md), both limited CPU experiments; no full agent RL or large-model training run has been performed.
 - Added five [chapters on the full training process](handbook/00-end-to-end.md), combining pinned source code with current primary reports, and following real decisions in [the ongoing Marin 535B training run](handbook/04-marin-535b-live-case-study.md). Source code, author reports, engineering synthesis, and unverified items are labeled separately.
@@ -87,7 +87,7 @@ frontier-llm-lab/
 ├── PROGRESS.md                   Stage status and where to resume
 ├── HOW_TO_STUDY.md               Ongoing study workflow
 ├── GLOSSARY.md                   Terminology and interface semantics
-├── repos.json                   Registry of 19 source repositories
+├── repos.json                   Registry of 20 source repositories
 ├── sources.lock.json            Source snapshots recorded for this study
 ├── SOURCE_INDEX.md              Clickable source index
 ├── handbook/                    Full process, three detailed mechanism chapters, and Marin 535B case study
@@ -100,7 +100,7 @@ frontier-llm-lab/
 └── tools/                       Cloning, snapshot, and integrity-check tools
 ```
 
-The sources use depth=1 shallow clones. Their current working trees are readable; full Git history, submodule contents, large LFS files, model weights, and training data have not been fetched. The main GitHub repository stores learning material, experiments, and the source version manifest. The 19 independent upstream checkouts under `sources/` are not bundled and uploaded again; restore them with the commands below. Local source links in notes require `sources/` to be restored first; GitHub links pinned to a SHA can be read directly online.
+The sources use depth=1 shallow clones. Their current working trees are readable; full Git history, submodule contents, large LFS files, model weights, and training data have not been fetched. The main GitHub repository stores learning material, experiments, and the source version manifest. The 20 independent upstream checkouts under `sources/` are not bundled and uploaded again; restore them with the commands below. Local source links in notes require `sources/` to be restored first; GitHub links pinned to a SHA can be read directly online.
 
 <a id="在另一台电脑恢复"></a>
 
@@ -134,3 +134,9 @@ By default, `clone_repos.py` fills in missing repositories and checks existing o
 ## Next study session
 
 New readers should start with the [ROADMAP assessment](ROADMAP.md) and [M00](curriculum/01-foundations-to-pretraining.md#m00), and copy the [personal learning record template](templates/learner-progress.md). Use the assessments to skip material you already know; do not treat the maintainer's reading progress as your own completion record. The next content priority is a complete M01 decoder lesson; see [maintenance progress](PROGRESS.md#下一次从这里继续).
+
+<a id="claude-code-harness-学习入口"></a>
+
+## Claude Code harness study entry
+
+Start with the [M12 advanced guide](handbook/05-claude-code-harness.md): Pi → the Claude Code execution loop, context, permissions, and recovery → trajectories and evaluation in Harbor/APEX. Use the [pinned source and historical snapshot notes](notes/repositories/claude-agent-sdk.md) and [CPU state-machine experiment](experiments/harness-state-machine/README.md). The official SDK is the 20th independent source project; historical mirrors have separate provenance limits. The experiment uses an original mock provider, does not call Claude, and does not reproduce its internal implementation.

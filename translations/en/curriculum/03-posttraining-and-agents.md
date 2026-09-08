@@ -92,6 +92,9 @@ Read the three groups of core material in each section in order; optional readin
 
 **Deliverables:** `m12/task-contract.md`, a status-classification table, trajectory fixtures, a data schema, and artifacts that can be rescored. **Workload:** 16–28 hours for the core; another 10–20 hours for real-model/sandbox extensions. **Next:** connect one task back into the M11 synchronous loop before studying concurrency in M13.
 
+
+**Claude Code advanced unit:** After the initial Pi reading, study the [complete guide](../handbook/05-claude-code-harness.md) and [pinned SDK / historical snapshot](../notes/repositories/claude-agent-sdk.md) in the order execution loop → context → permissions → recovery → evaluation. Run the [CPU state-machine experiment](../experiments/harness-state-machine/README.md), deliver traces for denied calls, exhausted budgets, and unknown execution outcomes, then identify the fields required by M13 training trajectories.
+
 <a id="m13"></a>
 
 <a id="m13异步-agent-rl-与一致性吞吐增长不能掩盖训练语义变化"></a>

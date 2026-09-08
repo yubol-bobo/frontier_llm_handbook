@@ -316,6 +316,22 @@
       "working_tree_changes": "",
       "verified_at": "2026-09-08T16:02:09.752390+00:00",
       "status": "cloned"
+    },
+    {
+      "id": "claude-agent-sdk",
+      "requested_url": "https://github.com/anthropics/claude-agent-sdk-python.git",
+      "origin": "https://github.com/anthropics/claude-agent-sdk-python.git",
+      "path": "sources/claude-agent-sdk",
+      "commit": "f1315c69a74db1c15fed2e5974918495d90b7d57",
+      "branch": "main",
+      "commit_date": "2026-09-08T20:38:16Z",
+      "shallow": true,
+      "tracked_files": 144,
+      "submodules": 0,
+      "lfs_pointer_files": [],
+      "working_tree_changes": "",
+      "verified_at": "2026-09-08T23:16:47.572356+00:00",
+      "status": "cloned"
     }
   ]
 }

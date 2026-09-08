@@ -1,0 +1,179 @@
+{
+  "python": "3.11.4",
+  "scope": "Original deterministic in-memory mock; no Claude or SDK execution",
+  "denial": {
+    "status": "denied",
+    "counter": 0,
+    "events": [
+      {
+        "sequence": 1,
+        "kind": "requested",
+        "call_id": "denied:1",
+        "tool": "increment",
+        "value": 10
+      },
+      {
+        "sequence": 2,
+        "kind": "permission_checked",
+        "call_id": "denied:1",
+        "tool": "",
+        "value": "deny"
+      },
+      {
+        "sequence": 3,
+        "kind": "denied",
+        "call_id": "denied:1",
+        "tool": "",
+        "value": "tool is not permitted"
+      }
+    ]
+  },
+  "budget": {
+    "status": "budget_exhausted",
+    "counter": 3,
+    "tool_budget": 3,
+    "receipts": [
+      {
+        "status": "result",
+        "value": 1
+      },
+      {
+        "status": "result",
+        "value": 2
+      },
+      {
+        "status": "result",
+        "value": 3
+      }
+    ],
+    "events": [
+      {
+        "sequence": 1,
+        "kind": "requested",
+        "call_id": "budget:1",
+        "tool": "increment",
+        "value": 1
+      },
+      {
+        "sequence": 2,
+        "kind": "permission_checked",
+        "call_id": "budget:1",
+        "tool": "",
+        "value": "allow"
+      },
+      {
+        "sequence": 3,
+        "kind": "started",
+        "call_id": "budget:1",
+        "tool": "",
+        "value": null
+      },
+      {
+        "sequence": 4,
+        "kind": "result",
+        "call_id": "budget:1",
+        "tool": "",
+        "value": 1
+      },
+      {
+        "sequence": 5,
+        "kind": "requested",
+        "call_id": "budget:2",
+        "tool": "increment",
+        "value": 1
+      },
+      {
+        "sequence": 6,
+        "kind": "permission_checked",
+        "call_id": "budget:2",
+        "tool": "",
+        "value": "allow"
+      },
+      {
+        "sequence": 7,
+        "kind": "started",
+        "call_id": "budget:2",
+        "tool": "",
+        "value": null
+      },
+      {
+        "sequence": 8,
+        "kind": "result",
+        "call_id": "budget:2",
+        "tool": "",
+        "value": 2
+      },
+      {
+        "sequence": 9,
+        "kind": "requested",
+        "call_id": "budget:3",
+        "tool": "increment",
+        "value": 1
+      },
+      {
+        "sequence": 10,
+        "kind": "permission_checked",
+        "call_id": "budget:3",
+        "tool": "",
+        "value": "allow"
+      },
+      {
+        "sequence": 11,
+        "kind": "started",
+        "call_id": "budget:3",
+        "tool": "",
+        "value": null
+      },
+      {
+        "sequence": 12,
+        "kind": "result",
+        "call_id": "budget:3",
+        "tool": "",
+        "value": 3
+      }
+    ]
+  },
+  "crash": {
+    "status": "unknown",
+    "counter": 7,
+    "receipts": [
+      {
+        "status": "unknown",
+        "value": "started without a recorded result"
+      }
+    ],
+    "events": [
+      {
+        "sequence": 1,
+        "kind": "requested",
+        "call_id": "crash:1",
+        "tool": "increment",
+        "value": 7
+      },
+      {
+        "sequence": 2,
+        "kind": "permission_checked",
+        "call_id": "crash:1",
+        "tool": "",
+        "value": "allow"
+      },
+      {
+        "sequence": 3,
+        "kind": "started",
+        "call_id": "crash:1",
+        "tool": "",
+        "value": null
+      }
+    ]
+  },
+  "compaction": {
+    "history": [
+      "Do not increment the counter.",
+      "Result was 6."
+    ],
+    "summary": "Result was 6.",
+    "missing_constraints": [
+      "Do not increment the counter."
+    ]
+  }
+}

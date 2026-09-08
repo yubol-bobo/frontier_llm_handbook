@@ -92,4 +92,14 @@ flowchart LR
 
 ## 范围外节点
 
-SkyRL、vLLM、nanotron、datatrove、Tinker Cookbook、TRL/PEFT、DeepSpeed、Ray 等是阅读中出现的外部关联；没有计入本次 19 个独立 clone，也没有递归克隆所有第三方依赖。SkyRL 与 nanotron 是后续扩展的优先候选，因为它们分别补齐 APEX 和 SmolLM 的运行器代码。
+SkyRL、vLLM、nanotron、datatrove、Tinker Cookbook、TRL/PEFT、DeepSpeed、Ray 等是阅读中出现的外部关联；没有计入本次 20 个独立 clone，也没有递归克隆所有第三方依赖。SkyRL 与 nanotron 是后续扩展的优先候选，因为它们分别补齐 APEX 和 SmolLM 的运行器代码。
+
+## Claude Code / Agent SDK 的两类连接
+
+| 对象 | 关系与证据 | 学习用途 |
+|---|---|---|
+| Python Agent SDK → Claude Code CLI | 直接运行依赖；[固定源码笔记](notes/repositories/claude-agent-sdk.md) 追 CLI 定位、stream-json 与双向控制响应 | SDK 集成层和 CLI 内部 harness 的边界 |
+| Claude Code ↔ Pi / DeepSeek Harness | 概念对应；[对照讲解](handbook/05-claude-code-harness.md)，不是包依赖证据 | 比较上下文、工具事件、恢复与权限 |
+| Claude Code ↔ Harbor / APEX / RL | 教学设计上的对应，未实现适配器 | 用独立评分衡量任务；另外保留训练所需 token / logprob / mask / version |
+
+历史镜像按来源和 commit 单列为研究证据，不计入独立官方源码数量，也不作为经过验证的 SDK 配套版本。

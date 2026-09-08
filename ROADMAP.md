@@ -48,7 +48,7 @@
 | [M09 推理与 rollout 系统](curriculum/02-training-systems.md#m09) | 生成为什么成为后训练的成本中心？ | SGLang | prefill/decode、KV 与调度轨迹 |
 | [M10 SFT、偏好与 reward model](curriculum/03-posttraining-and-agents.md#m10) | 示例和偏好怎样改变行为与能力？ | Open Instruct、原始论文 | template/mask、偏好目标与奖励诊断 |
 | [M11 同步 RL 最小闭环](curriculum/03-posttraining-and-agents.md#m11) | 概率、奖励和 advantage 如何形成更新？ | PPO/GRPO、Open Instruct、一个 RL 框架 | 手算目标、张量例子、同步时序 |
-| [M12 Harness、任务与轨迹](curriculum/03-posttraining-and-agents.md#m12) | 模型实际看见、生成和完成了什么？ | Harbor/Verifiers、Pi/DeepSeek Harness | 环境与评分契约、带来源的 token trace |
+| [M12 Harness、任务与轨迹](curriculum/03-posttraining-and-agents.md#m12) | 模型实际看见、生成和完成了什么？ | Harbor/Verifiers、Pi/DeepSeek Harness、Claude Code | 环境与评分契约、带来源的 token trace |
 | [M13 异步 agent RL](curriculum/03-posttraining-and-agents.md#m13) | 如何在长尾任务中保持吞吐和概率语义？ | Prime RL、slime/Miles、verl、APEX | policy 版本图、队列实验、一致性审计 |
 | [M14 独立评估与发布](curriculum/03-posttraining-and-agents.md#m14) | 怎样证明提高的是实际能力？ | lm-eval、Inspect、Harbor | 评估协议、失败分类、不确定性与回归报告 |
 | [M15 综合项目](curriculum/03-posttraining-and-agents.md#m15) | 能否独立解释、验证并交付一条完整链路？ | 选择一种兼容参考栈 | 可复核的项目报告与实验/审计产物 |
@@ -134,7 +134,7 @@ CPU 路线每个核心模块都有产物，不会因没 GPU 无法开始。它�
 - **COVERAGE：**领域地图、当前覆盖深度和待补的公开材料。
 - **PROGRESS：**维护者实际做了什么，不代表读者已经完成课程。
 
-现有 19 个项目仍是主干，登记编号保留用于稳定索引；**编号不是学习顺序**。每个模块先选一份主实现读透，再与另一份比较，避免在六种 RL 框架之间跳转却无法解释一次更新。
+现有 20 个项目仍是主干，登记编号保留用于稳定索引；**编号不是学习顺序**。每个模块先选一份主实现读透，再与另一份比较，避免在六种 RL 框架之间跳转却无法解释一次更新。
 
 ## 8. 什么算学到了实验室工作的能力
 

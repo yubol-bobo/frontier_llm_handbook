@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "created": "2026-09-08",
-  "scope": "前次清单、用户最初四个项目，以及 NVIDIA Megatron-LM；19 个独立源码仓库。",
+  "scope": "20 个独立源码仓库；Claude Code 案例固定官方 Python SDK，历史泄露快照作为单独标注的外部研究材料。",
   "repositories": [
     {"id":"pi","name":"Pi","url":"https://github.com/earendil-works/pi.git","layer":"agent-harness","order":1,"group":"harness"},
     {"id":"deepseek-harness","name":"DeepSeek Harness","url":"https://github.com/deepseek-ai/deepseek-harness.git","layer":"agent-harness","order":2,"group":"harness"},
@@ -21,6 +21,7 @@
     {"id":"miles","name":"Miles","url":"https://github.com/radixark/miles.git","layer":"rl-training","order":16,"group":"rl"},
     {"id":"sglang","name":"SGLang","url":"https://github.com/sgl-project/sglang.git","layer":"inference-rollout","order":17,"group":"infra"},
     {"id":"deepgemm","name":"DeepGEMM","url":"https://github.com/deepseek-ai/DeepGEMM.git","layer":"gpu-compute","order":18,"group":"infra"},
-    {"id":"deepep","name":"DeepEP","url":"https://github.com/deepseek-ai/DeepEP.git","layer":"gpu-communication","order":19,"group":"infra"}
+    {"id":"deepep","name":"DeepEP","url":"https://github.com/deepseek-ai/DeepEP.git","layer":"gpu-communication","order":19,"group":"infra"},
+    {"id":"claude-agent-sdk","name":"Claude Code / Agent SDK","url":"https://github.com/anthropics/claude-agent-sdk-python.git","layer":"agent-harness","order":20,"group":"harness"}
   ]
 }

@@ -101,7 +101,6 @@
   "每份资源都有建议入口、阅读问题和停止条件。先读透一个实现，再比较另一种设计。": "Every resource has an entry point, a guiding question, and a stopping point. Understand one implementation, then compare another design.",
   "连续阅读的手册与教材": "Handbook chapters & lessons",
   "站内阅读全文": "Read in the handbook",
-  "19 个固定源码项目": "19 repositories pinned to commits",
   "按首次学习模块排列": "Ordered by first relevant module",
   "全部": "All",
   "固定源码表示有版本记录和局部审读，完整运行与兼容性需要分别验证。": "Pinned source code has a recorded revision and a focused review. Full execution and compatibility require separate validation. ",
@@ -278,5 +277,7 @@
   "无法识别学习记录格式。": "Unrecognized learning-record format.",
   "学习记录包含无效模块或内容。": "Learning records contain an invalid module or invalid content.",
   "自主验收需要保留证据说明。": "Self-assessed completion requires recorded evidence.",
-  "前沿 LLM 端到端训练知识与工程能力：从数据、预训练到分布式系统、后训练与 Agent RL。按顺序学习一手资料，通过交互实验理解原理。": "Frontier LLM training knowledge and engineering skills: data, pretraining, distributed systems, post-training, and agent RL. Learn from primary sources and interactive experiments."
+  "前沿 LLM 端到端训练知识与工程能力：从数据、预训练到分布式系统、后训练与 Agent RL。按顺序学习一手资料，通过交互实验理解原理。": "Frontier LLM training knowledge and engineering skills: data, pretraining, distributed systems, post-training, and agent RL. Learn from primary sources and interactive experiments.",
+  " 个固定源码项目": " repositories pinned to commits",
+  "Claude Code：执行循环、上下文与恢复": "Claude Code: agent loop, context, and recovery"
 }

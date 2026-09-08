@@ -59,7 +59,7 @@ This round uses only local CPU experiments without paid APIs. For future experim
 - The main repository is [yubol-bobo/frontier_llm_handbook](https://github.com/yubol-bobo/frontier_llm_handbook), with `origin/main` as the default synchronization target; further learning material continues to accumulate here.
 - Each upstream manages its own Git repository under `sources/`; the outer Git repository ignores that directory.
 - By default, clones have shallow history, submodules are not initialized, and LFS contents are not downloaded. When studying an older version as needed, explicitly fetch that version without resetting other existing changes.
-- `sources.lock.json` is a study provenance record, not a dependency lock that makes all 19 projects runnable together.
+- `sources.lock.json` is a study provenance record, not a dependency lock that makes all 20 projects runnable together.
 - Reading records use GitHub commit permalinks; local links provide convenient navigation.
 - An independent source HEAD may differ from a project's pinned dependency commit. Actual execution follows that project's dependency pins.
 

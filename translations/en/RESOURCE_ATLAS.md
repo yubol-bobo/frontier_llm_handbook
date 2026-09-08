@@ -4,11 +4,13 @@
 
 Verified: 2026-09-08. See [ROADMAP](ROADMAP.md) for the curriculum sequence. Resources here are organized by learning purpose, not popularity or stars. On the first pass, choose only the core material for each module and consult the rest as specific questions arise.
 
-**Status definitions:** “Pinned source” means cloned, with a recorded SHA and targeted notes; it does not mean the full project has been run. “External entry point” means the official page and learning purpose were checked in this round, but the resource is not among the 19 source snapshots, has not been installed, and its assignments have not been completed. Paper conclusions apply within their experimental conditions; model reports, inference demos, and complete training recipes are identified separately.
+**Status definitions:** “Pinned source” means cloned, with a recorded SHA and targeted notes; it does not mean the full project has been run. “External entry point” means the official page and learning purpose were checked in this round, but the resource is not among the 20 source snapshots, has not been installed, and its assignments have not been completed. Paper conclusions apply within their experimental conditions; model reports, inference demos, and complete training recipes are identified separately.
 
 <a id="1-主干19-个固定源码项目"></a>
 
-## 1. Backbone: 19 pinned source projects
+<a id="1-主干20-个固定源码项目"></a>
+
+## 1. Backbone: 20 pinned source projects
 
 | Project / pinned-source notes | First encounter | Most useful question to read with | First-pass stopping point |
 |---|---|---|---|
@@ -26,6 +28,7 @@ Verified: 2026-09-08. See [ROADMAP](ROADMAP.md) for the curriculum sequence. Res
 | [Harbor](notes/repositories/harbor.md) | M12, M14 | How do environment, agent, and verifier lifecycles end reliably? | Explain normal, timeout, and failure branches |
 | [Verifiers](notes/repositories/verifiers.md) | M12 | Who owns state: task, harness, runtime, or rollout? | Trace one rollout through scoring and artifacts |
 | [Pi](notes/repositories/pi.md) | M12 | How do events, tools, context, and durable sessions connect? | Trace one controlled tool call and cancellation/recovery questions |
+| [Claude Code / Agent SDK](notes/repositories/claude-agent-sdk.md) | M12, after Pi | How do SDK control protocols, historical harness snapshots, and current behavior differ? | Trace permission callbacks, explain compaction and recovery, and pass the CPU state-machine experiment |
 | [DeepSeek Harness](notes/repositories/deepseek-harness.md) | M12 | How is a log projected into a model request? | Identify the invariants that context and logs must satisfy |
 | [Prime RL](notes/repositories/prime-rl.md) | M11 overview, M13 in depth | How do task generation, grouping, filtering, queues, and training connect? | Follow one sample's reward/tokens/version to the learner |
 | [slime](notes/repositories/slime.md) | M13 | How do multiple turns, branching, and compaction become training samples? | A counterexample involving shared prefixes and loss masks |
@@ -94,3 +97,9 @@ These are external entry points, not pinned clones in this repository. Their pur
 A resource enters the core path only when it can answer: “Which question does it fill, what are its prerequisites, which part should be read, and what evidence should it produce?” Register a new resource's purpose and openness first; it becomes a core source resource after review at a pinned version. This preserves access to frontier updates while preventing the resource count from growing faster than depth of understanding.
 
 See the [contributing guide](CONTRIBUTING.md) for addition rules and the [coverage map](COVERAGE.md) for uncovered areas.
+
+<a id="6-claude-code先读机制再检查历史实现"></a>
+
+## 6. Claude Code: understand mechanisms, then inspect historical implementations
+
+Study the [M12 advanced guide](handbook/05-claude-code-harness.md), then the [official SDK and historical snapshot review](notes/repositories/claude-agent-sdk.md), then the [CPU state-machine experiment](experiments/harness-state-machine/README.md). Local observations in a historical mirror do not establish current product behavior; the official SDK exposes integration and transport code, while the complete harness runs through the separately released CLI.

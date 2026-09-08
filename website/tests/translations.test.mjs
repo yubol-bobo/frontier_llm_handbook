@@ -8,9 +8,9 @@ const en=JSON.parse(await fs.readFile(new URL('../../_site/content.en.json',impo
 const links=html=>[...html.matchAll(/href="([^"]+)"/g)].map(match=>match[1]).sort();
 const md=new MarkdownIt({html:true});
 
-test('all 51 English documents retain canonical identity, references, links and legacy fragments',()=>{
+test('all published English documents retain canonical identity, references, links and legacy fragments',()=>{
   assert.equal(zh.locale,'zh');assert.equal(en.locale,'en');
-  assert.deepEqual(Object.keys(en.docs),Object.keys(zh.docs));assert.equal(Object.keys(en.docs).length,51);
+  assert.deepEqual(Object.keys(en.docs),Object.keys(zh.docs));assert.equal(Object.keys(en.docs).length,54);
   assert.deepEqual(en.modules.map(m=>[m.id,m.file,m.anchor,m.prerequisites]),zh.modules.map(m=>[m.id,m.file,m.anchor,m.prerequisites]));
   assert.deepEqual(en.seminars.map(m=>[m.id,m.file,m.anchor]),zh.seminars.map(m=>[m.id,m.file,m.anchor]));
   assert.deepEqual(en.resources.map(r=>[r.id,r.commit,r.firstModule]),zh.resources.map(r=>[r.id,r.commit,r.firstModule]));

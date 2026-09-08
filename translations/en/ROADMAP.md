@@ -56,7 +56,7 @@ The core path is **M00–M15**. Follow the table from top to bottom; use assessm
 | [M09 Inference and rollout systems](curriculum/02-training-systems.md#m09) | Why does generation become a major cost in post-training? | SGLang | Prefill/decode, KV, and scheduling traces |
 | [M10 SFT, preferences, and reward models](curriculum/03-posttraining-and-agents.md#m10) | How do demonstrations and preferences change behavior and capabilities? | Open Instruct, original papers | Templates/masks, preference objectives, and reward diagnostics |
 | [M11 The minimal synchronous RL loop](curriculum/03-posttraining-and-agents.md#m11) | How do probabilities, rewards, and advantages produce an update? | PPO/GRPO, Open Instruct, one RL framework | Hand-calculated objective, tensor example, synchronous timeline |
-| [M12 Harnesses, tasks, and trajectories](curriculum/03-posttraining-and-agents.md#m12) | What did the model actually see, generate, and accomplish? | Harbor/Verifiers, Pi/DeepSeek Harness | Environment and scoring contracts, token trace with provenance |
+| [M12 Harnesses, tasks, and trajectories](curriculum/03-posttraining-and-agents.md#m12) | What did the model actually see, generate, and accomplish? | Harbor/Verifiers, Pi/DeepSeek Harness, Claude Code | Environment and scoring contracts, token trace with provenance |
 | [M13 Asynchronous agent RL](curriculum/03-posttraining-and-agents.md#m13) | How do you maintain throughput and probability semantics for tasks with long-tailed durations? | Prime RL, slime/Miles, verl, APEX | Policy-version graph, queue experiment, consistency audit |
 | [M14 Independent evaluation and release](curriculum/03-posttraining-and-agents.md#m14) | How do you show that actual capabilities improved? | lm-eval, Inspect, Harbor | Evaluation protocol, failure taxonomy, uncertainty and regression report |
 | [M15 Capstone project](curriculum/03-posttraining-and-agents.md#m15) | Can you independently explain, validate, and deliver a complete pipeline? | Choose one compatible reference stack | Verifiable project report and experiment/audit artifacts |
@@ -152,7 +152,7 @@ To complete each module, submit at least four things: **a conceptual explanation
 - **COVERAGE:** Maps the field, current coverage depth, and public material still to be added.
 - **PROGRESS:** Records what the maintainer has actually done; it does not mean the reader has completed the course.
 
-The existing 19 projects remain the backbone, with registration numbers retained as stable references; **the numbers are not the learning sequence**. For each module, first understand one main implementation thoroughly, then compare it with another, instead of moving among six RL frameworks without being able to explain one update.
+The existing 20 projects remain the backbone, with registration numbers retained as stable references; **the numbers are not the learning sequence**. For each module, first understand one main implementation thoroughly, then compare it with another, instead of moving among six RL frameworks without being able to explain one update.
 
 <a id="8-什么算学到了实验室工作的能力"></a>
 

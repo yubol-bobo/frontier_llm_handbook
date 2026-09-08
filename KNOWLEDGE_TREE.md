@@ -1,6 +1,6 @@
 # Frontier LLM 知识树
 
-版本：v0.3，2026-09-08。来源：19 份局部源码笔记、两个局部 CPU 实验，以及 [超大模型训练全流程](handbook/00-end-to-end.md) 的源码 / 一手报告综合。课程按 [ROADMAP](ROADMAP.md) 的 M00–M15 与 F01–F06 学习；下文按问题分支，不代表学习先后。覆盖深度与缺口见 [COVERAGE](COVERAGE.md)。
+版本：v0.4，2026-09-08。来源：20 份局部源码笔记、三个局部 CPU 实验，以及 [超大模型训练全流程](handbook/00-end-to-end.md) 的源码 / 一手报告综合。课程按 [ROADMAP](ROADMAP.md) 的 M00–M15 与 F01–F06 学习；下文按问题分支，不代表学习先后。覆盖深度与缺口见 [COVERAGE](COVERAGE.md)。
 
 ## 新增的学习连接
 
@@ -35,7 +35,7 @@ Frontier LLM：从任务与数据到学习与执行
 │   ├── 模型请求、工具调用、steering 与终止条件
 │   ├── context transform、compaction、分叉、恢复
 │   ├── live events 与 durable session log
-│   └── 项目：Pi、DeepSeek Harness
+│   └── 项目：Pi、DeepSeek Harness、Claude Code / Agent SDK
 │
 ├── 2. 怎样定义任务、环境与反馈？
 │   ├── Task / Harness / Runtime 的职责和所有权
@@ -148,3 +148,9 @@ SGLang 负责生成，Megatron 负责训练；Miles 的 replay 需要对齐两�
 - [ ] 环境长尾、生成长尾、权重同步中，当前任务的主要瓶颈在哪里？
 
 新增节点必须有具体问题、源码或实验依据，并链接回项目笔记；猜测保留为待验证问题。
+
+## Claude Code 补上的连接：事件、模型上下文与训练轨迹
+
+[Claude Code 案例](handbook/05-claude-code-harness.md) 将 Pi/DeepSeek 的状态问题推进到 SDK 控制协议、权限回调与长任务。执行日志保存发生了什么，compaction 后的上下文决定下一步看见什么；进入 Agent RL 还要额外保存真实 sampled token、logprob、mask、分支和策略版本。文本 session 不能自动充当可训练轨迹。
+
+[CPU 实验](experiments/harness-state-machine/README.md) 验证权限拒绝前不修改状态、循环预算和未知执行结果。下一步在同一任务、模型和预算下比较有无摘要、笔记和子任务隔离，使用独立 verifier；这些真实模型实验尚未执行。

@@ -25,6 +25,7 @@
 | SGLang | [sources/sglang](sources/sglang/) | [30e7a3072d3f](https://github.com/sgl-project/sglang/tree/30e7a3072d3f1e9bd70cd5e44146ca27c80522c4) | 8968 | 0 | 0 |
 | DeepGEMM | [sources/deepgemm](sources/deepgemm/) | [559d79fb6994](https://github.com/deepseek-ai/DeepGEMM/tree/559d79fb6994a58b8a15b4b93bf13ccc16edf247) | 138 | 2 | 0 |
 | DeepEP | [sources/deepep](sources/deepep/) | [01dc3aaac820](https://github.com/deepseek-ai/DeepEP/tree/01dc3aaac82068020353dce2c302e38153c0bfaa) | 108 | 1 | 0 |
+| Claude Code / Agent SDK | [sources/claude-agent-sdk](sources/claude-agent-sdk/) | [f1315c69a74d](https://github.com/anthropics/claude-agent-sdk-python/tree/f1315c69a74db1c15fed2e5974918495d90b7d57) | 144 | 0 | 0 |
 
 ## 使用说明
 

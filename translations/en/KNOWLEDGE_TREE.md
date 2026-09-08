@@ -2,7 +2,7 @@
 
 # Frontier LLM knowledge tree
 
-Version: v0.3, 2026-09-08. Sources: 19 targeted source notes, two limited CPU experiments, and the source / primary-report synthesis in [the full large-model training process](handbook/00-end-to-end.md). Follow M00–M15 and F01–F06 in [ROADMAP](ROADMAP.md) for the course sequence; the branches below are organized by question, not learning order. See [COVERAGE](COVERAGE.md) for coverage depth and gaps.
+Version: v0.4, 2026-09-08. Sources: 20 targeted source notes, three limited CPU experiments, and the source / primary-report synthesis in [the full large-model training process](handbook/00-end-to-end.md). Follow M00–M15 and F01–F06 in [ROADMAP](ROADMAP.md) for the course sequence; the branches below are organized by question, not learning order. See [COVERAGE](COVERAGE.md) for coverage depth and gaps.
 
 <a id="新增的学习连接"></a>
 
@@ -43,7 +43,7 @@ Frontier LLMs: from tasks and data to learning and execution
 │   ├── Model requests, tool calls, steering, and stopping conditions
 │   ├── Context transforms, compaction, branching, recovery
 │   ├── Live events and durable session logs
-│   └── Projects: Pi, DeepSeek Harness
+│   └── Projects: Pi, DeepSeek Harness, Claude Code / Agent SDK
 │
 ├── 2. How are tasks, environments, and feedback defined?
 │   ├── Responsibilities and ownership of Task / Harness / Runtime
@@ -172,3 +172,11 @@ Examples: Prime RL's Verifiers gitlink, Verifiers' Pi npm release, Open Instruct
 - [ ] Among environment duration tails, generation duration tails, and weight synchronization, where is the current task's main bottleneck?
 
 New nodes must have a concrete question, source or experimental evidence, and links back to project notes; conjectures remain questions to validate.
+
+<a id="claude-code-补上的连接事件模型上下文与训练轨迹"></a>
+
+## The Claude Code connection: events, model context, and training trajectories
+
+The [Claude Code case](handbook/05-claude-code-harness.md) extends the state questions in Pi/DeepSeek to SDK control protocols, permission callbacks, and long-running tasks. An execution log records what happened; context after compaction determines what the next step sees. Agent RL additionally needs actual sampled tokens, logprobs, masks, branches, and policy versions. A text session does not automatically constitute a trainable trajectory.
+
+The [CPU experiment](experiments/harness-state-machine/README.md) verifies no state mutation before a permission denial, loop budgets, and unknown execution outcomes. Next, compare summaries, notes, and subtask isolation under the same task, model, and budget using an independent verifier; these real-model experiments have not been executed.

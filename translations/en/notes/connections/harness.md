@@ -33,3 +33,11 @@ These relationships provide a learning route: fix task, model, and budget to com
 [Experiment 001](../../experiments/001-harbor-reward-contract/README.md) shows that the same candidate can have correctness=0 and performance=1. Harbor main's default verifier preserves a reward dictionary; the [parsing path](https://github.com/harbor-framework/harbor/blob/9a2e3b135cc8fb1e41131020f83370cb2f12ae93/src/harbor/verifier/verifier.py#L255-L266) does not automatically select a training objective for arbitrary dictionaries. The `grade()` behavior in Cookbook's specific feature-branch example has not been read locally, so the raw-dictionary observation cannot be extended to a complete runtime result for that example.
 
 The reusable question is: **what did the task write, what did the verifier parse, what did the adapter pass, and what did the trainer ultimately optimize?** Each of these four needs its own evidence.
+
+<a id="claude-code从回调协议到训练数据契约"></a>
+
+## Claude Code: from callback protocols to training-data contracts
+
+The [pinned SDK note](../repositories/claude-agent-sdk.md) shows how Python callbacks return responses to the CLI over a control channel; SDK allow/deny serialization does not establish the implementation of the entire sandbox. The [advanced guide](../../handbook/05-claude-code-harness.md) compares this with Pi execution events and DeepSeek log projection.
+
+The unknown-outcome case in the [CPU experiment](../../experiments/harness-state-machine/README.md) shows that a tool may have produced a side effect before its completion was journaled. Automatic retry may duplicate the action; idempotency keys, external reconciliation, or explicit human handling are needed. Validate log recovery, task-success scoring, and RL token alignment separately.

@@ -25,3 +25,9 @@ RL 层还需要保存实际采样 token、概率、角色 mask 和模型版本�
 [实验 001](../../experiments/001-harbor-reward-contract/README.md) 说明：同一候选可以 correctness=0、performance=1。Harbor 主分支默认 verifier 保留奖励字典，[解析路径](https://github.com/harbor-framework/harbor/blob/9a2e3b135cc8fb1e41131020f83370cb2f12ae93/src/harbor/verifier/verifier.py#L255-L266) 不为任意字典自动选择训练目标。Cookbook 中特定 feature-branch 示例的 `grade()` 行为尚未在本地读取，因此不能把 raw dict 的观察扩展为该示例完整运行结果。
 
 可复用问题是：**task 写出了什么，verifier 解析了什么，adapter 传递了什么，trainer 最后优化了什么？** 这四项需要分别留下证据。
+
+## Claude Code：从回调协议到训练数据契约
+
+[固定 SDK 笔记](../repositories/claude-agent-sdk.md) 展示 Python 回调如何通过控制通道返回 CLI；不能把 SDK 的 allow/deny 序列化当成整个 sandbox 的实现证明。[进阶讲解](../../handbook/05-claude-code-harness.md) 把它与 Pi 的执行事件和 DeepSeek 的日志投影并读。
+
+[CPU 实验](../../experiments/harness-state-machine/README.md) 的未知结果场景说明：工具可能已经产生副作用，而日志尚无完成记录。自动重试可能重复动作；需要幂等键、外部核对或明确的人工处置。日志恢复、任务成功评分与 RL token 对齐分别验收。

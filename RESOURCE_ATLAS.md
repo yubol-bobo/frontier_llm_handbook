@@ -2,9 +2,11 @@
 
 核查日期：2026-09-08。课程顺序见 [ROADMAP](ROADMAP.md)。这里按学习用途组织资源，不按热度或 stars 排名。第一轮每模块只选核心材料，其余按问题选读。
 
-**状态说明：**“固定源码”表示已克隆、登记 SHA 并有局部笔记，不表示完整运行过；“外部入口”表示本轮核实了官方页面及学习用途，没有纳入 19 个源码快照，也没有安装或完成其作业。论文的结论限于论文实验条件；模型报告、推理 demo 与完整训练配方分别标识。
+**状态说明：**“固定源码”表示已克隆、登记 SHA 并有局部笔记，不表示完整运行过；“外部入口”表示本轮核实了官方页面及学习用途，没有纳入 20 个源码快照，也没有安装或完成其作业。论文的结论限于论文实验条件；模型报告、推理 demo 与完整训练配方分别标识。
 
-## 1. 主干：19 个固定源码项目
+<a id="1-主干19-个固定源码项目"></a>
+
+## 1. 主干：20 个固定源码项目
 
 | 项目 / 固定源码笔记 | 第一次进入 | 最值得带着读的问题 | 第一轮停止条件 |
 |---|---|---|---|
@@ -22,6 +24,7 @@
 | [Harbor](notes/repositories/harbor.md) | M12，M14 | 环境、agent、verifier 的生命周期怎样可靠结束？ | 正常、超时和失败分支都能解释 |
 | [Verifiers](notes/repositories/verifiers.md) | M12 | task / harness / runtime / rollout 谁拥有状态？ | 把一次 rollout 跟到评分与 artifact |
 | [Pi](notes/repositories/pi.md) | M12 | 事件、工具、上下文和 durable session 如何衔接？ | 跟一次受控工具调用与取消/恢复问题 |
+| [Claude Code / Agent SDK](notes/repositories/claude-agent-sdk.md) | M12，在 Pi 之后 | SDK 控制协议、历史 harness 快照与当前行为怎样区分？ | 追权限回调，解释 compaction 与恢复，并通过 CPU 状态机实验 |
 | [DeepSeek Harness](notes/repositories/deepseek-harness.md) | M12 | 日志如何投影成模型请求？ | 指出上下文与日志必须满足的不变量 |
 | [Prime RL](notes/repositories/prime-rl.md) | M11 概览，M13 深入 | 任务生成、分组、过滤、队列和训练如何连接？ | 一条样本的 reward/token/version 到 learner |
 | [slime](notes/repositories/slime.md) | M13 | 多轮、分叉、compaction 怎样变成训练样本？ | 共享前缀和 loss mask 的反例 |
@@ -82,3 +85,7 @@
 一个资源只有在能回答“补哪一个问题、先修是什么、读哪一段、产出什么证据”时才进入核心路线。新资源先登记用途与公开程度；完成固定版本审读后再成为核心源码。这样既保留前沿更新入口，也避免资源数量增长快于理解深度。
 
 新增规则见 [贡献指南](CONTRIBUTING.md)；未覆盖的领域见 [覆盖地图](COVERAGE.md)。
+
+## 6. Claude Code：先读机制，再检查历史实现
+
+学习顺序是 [M12 进阶讲解](handbook/05-claude-code-harness.md) → [官方 SDK 与历史快照审读](notes/repositories/claude-agent-sdk.md) → [CPU 状态机实验](experiments/harness-state-machine/README.md)。历史镜像中的局部源码观察不等于当前产品行为；官方 SDK 是可阅读的接口与 transport 实现，完整 harness 运行依赖另行发布的 CLI。
