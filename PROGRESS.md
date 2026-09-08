@@ -2,11 +2,13 @@
 
 更新：2026-09-08。项目处于第一轮学习，尚未完成整个领域或任何完整大模型训练复现。
 
+主仓库：[yubol-bobo/frontier_llm_handbook](https://github.com/yubol-bobo/frontier_llm_handbook)，后续以 `origin/main` 为主线。本地学习目录保留 `frontier-llm-lab`；upstream clones 由清单与固定 SHA 恢复。
+
 ## 当前状态
 
 | 项目 | 已完成 | 未完成 |
 |---|---|---|
-| 学习仓库 | 本地 Git 目录、学习清单、方法与模板 | 远程发布未进行 |
+| 学习仓库 | 本地 Git、GitHub 主仓库、学习清单、方法与模板 | 后续学习持续更新此主仓库 |
 | 源码获取 | 19/19 shallow clones，固定 SHA，源码索引 | 完整历史、submodules、LFS 大文件、权重与数据未下载 |
 | 源码阅读 | 19/19 项目完成至少一条实现/配置链路初读 | 全仓库阅读与运行验证 |
 | 跨项目关系 | 4 份连接专题、关系总表、概念知识树 v0.1 | 各依赖组合的实际安装兼容性 |

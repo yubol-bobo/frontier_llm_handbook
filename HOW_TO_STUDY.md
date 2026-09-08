@@ -40,6 +40,7 @@
 
 ## 源码管理
 
+- 主仓库是 [yubol-bobo/frontier_llm_handbook](https://github.com/yubol-bobo/frontier_llm_handbook)，默认同步目标为 `origin/main`；后续学习资料继续在此积累。
 - `sources/` 由每个 upstream 自己的 Git 管理；外层 Git 忽略该目录。
 - 默认克隆浅历史、不初始化子模块、不下载 LFS 内容。按需研究某一旧版本时，显式获取该版本，不重置其他已有改动。
 - `sources.lock.json` 是学习来源记录，不是 19 个项目联合可运行的依赖锁。

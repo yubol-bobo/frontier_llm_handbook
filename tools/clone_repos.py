@@ -17,7 +17,8 @@ ROOT = Path(__file__).resolve().parents[1]
 
 def git(*args, cwd=None):
     return subprocess.check_output(["git", *args], cwd=cwd, text=True,
-                                   encoding="utf-8", errors="replace").strip()
+                                   encoding="utf-8", errors="replace",
+                                   env=dict(os.environ, GIT_LFS_SKIP_SMUDGE="1", GIT_TERMINAL_PROMPT="0")).strip()
 
 
 def inspect(repo):

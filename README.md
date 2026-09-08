@@ -1,8 +1,10 @@
-# Frontier LLM Learning Lab
+# Frontier LLM Handbook
 
 从源码、实验配方与可重复的小实验，学习 LLM training、agent RL、harness 和系统基础设施。
 
 创建日期：2026-09-08。范围：此前清单的项目、最初四个项目，以及 NVIDIA Megatron-LM，共 **19 个独立源码仓库**。
+
+主仓库：[yubol-bobo/frontier_llm_handbook](https://github.com/yubol-bobo/frontier_llm_handbook)，主分支：`main`。后续学习笔记、实验与知识树在这里持续积累；本地工作目录目前保留名称 `frontier-llm-lab`。
 
 ## 从这里开始
 
@@ -45,14 +47,25 @@ frontier-llm-lab/
 └── tools/                       克隆、快照与完整性检查工具
 ```
 
-源码使用 depth=1 的浅克隆，当前工作树可读，未获取完整 Git 历史、submodule 内容、LFS 大文件、模型权重或训练数据。学习资料由这个外层本地 Git 仓库管理。没有创建远程 GitHub 仓库或发布内容。
+源码使用 depth=1 的浅克隆，当前工作树可读，未获取完整 Git 历史、submodule 内容、LFS 大文件、模型权重或训练数据。GitHub 主仓库保存学习资料、实验和源码版本清单；`sources/` 下的 19 个独立 upstream checkouts 不重复打包上传，可通过下面的命令恢复。笔记中的本地源码链接需要先恢复 `sources/`；固定 SHA 的 GitHub 链接可以直接在线阅读。
+
+## 在另一台电脑恢复
+
+```powershell
+git clone https://github.com/yubol-bobo/frontier_llm_handbook.git
+cd frontier_llm_handbook
+python tools/clone_repos.py --restore-lock
+python tools/validate_learning_repo.py
+```
+
+这里的恢复覆盖登记的源码快照，不自动安装训练环境、下载权重/数据或执行 upstream 安装脚本。
 
 ## 常用命令
 
 在本目录执行，工具仅使用 Python 标准库与 Git：
 
 ```powershell
-python tools/clone_repos.py
+python tools/clone_repos.py --restore-lock
 python tools/validate_learning_repo.py
 python experiments/001-harbor-reward-contract/run.py
 ```

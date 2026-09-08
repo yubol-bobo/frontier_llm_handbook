@@ -4,6 +4,13 @@ This is a Chinese-language, source-grounded learning notebook. Start with README
 PROGRESS.md, sources.lock.json and the current repository note. The user wants
 progressive study, practical experiments and relationships between projects.
 
+Canonical repository: https://github.com/yubol-bobo/frontier_llm_handbook.git.
+Use this handbook as the main project for future work; the default remote is
+origin and its primary branch is main. Keep new learning artifacts here, and use
+origin/main when synchronizing them. Preserve upstream histories and do not force-push.
+The independent repositories under sources/ retain their own upstream remotes;
+publish their manifest and recorded commits, not nested copies of those repositories.
+
 - Follow HOW_TO_STUDY.md; distinguish source facts, inference and executed results.
 - Preserve fixed-commit evidence for existing notes. Record new source revisions explicitly.
 - Keep upstream checkouts under sources/ independent; avoid modifying them during reading.
