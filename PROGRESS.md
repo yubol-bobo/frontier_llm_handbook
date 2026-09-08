@@ -11,7 +11,8 @@
 | 学习仓库 | 本地 Git、GitHub 主仓库、学习清单、方法与模板 | 后续学习持续更新此主仓库 |
 | 源码获取 | 19/19 shallow clones，固定 SHA，源码索引 | 完整历史、submodules、LFS 大文件、权重与数据未下载 |
 | 源码阅读 | 19/19 项目完成至少一条实现/配置链路初读 | 全仓库阅读与运行验证 |
-| 跨项目关系 | 4 份连接专题、关系总表、概念知识树 v0.1 | 各依赖组合的实际安装兼容性 |
+| 跨项目关系 | 5 份连接专题、关系总表、概念知识树 v0.2 | 各依赖组合的实际安装兼容性 |
+| 全流程研究 | 总章 + 数据设计、分布式运行、后训练详章 + Marin 535B 案例 | 完整训练执行、独立复现作者成绩与闭源配方 |
 | 实验 | 1 个本地 CPU 实验，脚本与结果保存 | 模型 API、Docker、GPU、完整 RL 训练 |
 
 ## 逐仓库进度
@@ -30,7 +31,7 @@
 | 8 | [SmolLM](notes/repositories/smollm.md) | L1：阶段 YAML、数据与 SFT 示例 | 已算 token budget；训练实验待执行 |
 | 9 | [OLMo-core](notes/repositories/olmo-core.md) | L1：正式配方、数据、train module | 小模型机制实验待执行 |
 | 10 | [Open Instruct](notes/repositories/open-instruct.md) | L1：ratio、rho、mask、同步 | 张量级 loss 实验待执行 |
-| 11 | [Marin](notes/repositories/marin.md) | L1：执行步骤、训练与数据版本 | 小型 DAG/cache 实验待执行 |
+| 11 | [Marin](notes/repositories/marin.md) | L2 局部：artifact DAG、535B 配置与数据/通信/恢复的交接 | 静态预算核算；运行与 DAG/cache 实验待执行 |
 | 12 | [TorchTitan](notes/repositories/torchtitan.md) | L1：训练步与声明式 sharding | 分片/吞吐实验待执行 |
 | 13 | [Megatron-LM](notes/repositories/megatron-lm.md) | L1：训练入口、PP、MoE dispatcher | 并行拓扑与通信实验待执行 |
 | 14 | [verl](notes/repositories/verl.md) | L1：driver、advantage、Megatron engine | 数值与控制流实验待执行 |
@@ -42,7 +43,14 @@
 
 ## 下一次从这里继续
 
-**当前主学习单元：Pi 的事件、状态与恢复。**
+**当前主学习单元：超大模型训练全流程与一条预训练样本的旅程。**
+
+1. 先读 [全流程总章](handbook/00-end-to-end.md) 和 [Marin 535B 实际案例](handbook/04-marin-535b-live-case-study.md)，区分公开代码、历史配方和进行中的运行。
+2. 从 OLMo-core 正式 recipe 选择一条数据 → loader → labels/masks → loss → optimizer → checkpoint 路径；标明每个对象的 shape、身份和 token 计数规则。
+3. 设计一个自有微型样本，只检查 packing / masks / 全局有效 token 归一化；具备隔离环境后再执行，记录实际范围。
+4. 将同一个接口问题回看 Marin / Megatron / TorchTitan，区分研究配方和训练实现。
+
+**保留的 agent RL 续学入口：Pi 的事件、状态与恢复。**
 
 1. 核对 Pi SHA：`6160683a4a8012f0d1cd30c145df18b4ca6f5176`。
 2. 从 [Pi 笔记](notes/repositories/pi.md) 的低层循环，转入 `packages/agent/src/harness/runtime/drive/generation.ts`、`runtime/reducer.ts`、session JSONL 路径。
@@ -63,6 +71,7 @@
 
 ## 已保存的学习记录
 
+- [超大训练全流程研究](notes/sessions/2026-09-08-end-to-end.md)
 - [首次整体学习记录](notes/sessions/2026-09-08.md)
 - [训练组阅读记录](notes/sessions/2026-09-08-training.md)
 - [RL 组阅读记录](notes/sessions/2026-09-08-rl.md)

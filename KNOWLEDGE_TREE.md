@@ -1,6 +1,24 @@
 # Frontier LLM 知识树
 
-版本：v0.1，2026-09-08。来源：19 份局部源码笔记与一个 CPU 评分实验。这是第一轮知识结构，后续按实验修正。
+版本：v0.2，2026-09-08。来源：19 份局部源码笔记、一个 CPU 评分实验，以及 [超大模型训练全流程](handbook/00-end-to-end.md) 的源码 / 一手报告综合。机制理解与实际运行验证分别记录。
+
+## 从模型诞生过程读取这棵树
+
+```text
+能力目标与评测协议
+├── 预算与 scaling ladder：先预测，再检验外推
+├── 数据工厂：来源 → 去重/污染检查 → tokenizer/shards → mixture
+├── 模型配方：架构 × 优化器 × token horizon × 训练/推理成本
+└── 大规模执行验收
+    ├── 并行布局 × 数值 × 吞吐 × 恢复
+    └── 随机初始化 → 主预训练 → base checkpoint
+        ├── 按需要做 mid-training / 长上下文
+        ├── 后训练分支：SFT、偏好、RL、蒸馏与整合
+        │   └── Agent RL：harness/environment → trajectory/reward → update
+        └── 独立评估 → 导出/服务 → 授权反馈与下一轮数据
+```
+
+这是一棵带反馈的研发树，各阶段可并行准备或从中间 checkpoint 分支。[全流程](handbook/00-end-to-end.md) 给出交付物与进入下一阶段的条件；[跨层契约](notes/connections/end-to-end.md) 说明项目之间怎样传递同一个样本、参数与实验身份。
 
 ## 知识树：按要解决的问题组织
 
@@ -114,6 +132,8 @@ SGLang 负责生成，Megatron 负责训练；Miles 的 replay 需要对齐两�
 
 ## 接下来要长出的分支
 
+- [ ] 一条 OLMo / Marin 预训练样本从来源、分片、packing / masks 到全局 loss 和 checkpoint 的完整证据链。
+- [ ] Marin scaling ladder、当前 hero 运行与中途 cooldown 分支的实际配置差异；历史报告与固定源码如何对应。
 - [ ] Pi durable runtime 与低层 loop 的关系：一次取消/恢复会产生哪些可重放事件？
 - [ ] 同一个任务如何经过 Verifiers/Pi，再进入 Prime RL 的完整训练 trace？
 - [ ] Harbor 多维分数到训练标量的实际消费链路。

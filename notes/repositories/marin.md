@@ -1,9 +1,16 @@
 # Marin：训练实验的身份、依赖与执行位置如何分离
 
 日期：2026-09-08  
-阶段：L1 源码初读  
+阶段：L2 局部机制追踪（artifact DAG 与 535B 配方交接）
+
 源码：https://github.com/marin-community/marin @ `5e2436d0f61462983003bd8b6eaef8235ecab78c`  
-验证范围：本地 ArtifactStep / StepContext、fingerprint、训练 builder、mixture 与单 step runner；未启动 JAX、Fray、Iris、TPU/GPU 或云数据访问。
+验证范围：本地 ArtifactStep / StepContext、fingerprint、训练 builder、mixture、单 step runner，以及 535B launcher / data / transport / checkpoint 配置；静态阅读与预算核算，未启动 JAX、Fray、Iris、TPU/GPU 或云数据访问。
+
+## 新增：535B 真实运行的配方交接
+
+后续完整记录见 [Marin 535B 案例](../../handbook/04-marin-535b-live-case-study.md)。本次沿 `experiments/grug/moe_hero_ep` 追踪了四条具体路径：scaling launcher → token horizon / optimizer；Harrier 数据 → 两阶段 mixture；router / expert transport → state update；checkpoint manifest → master / device 布局恢复。
+
+核心结论是“同一项目”不等于“同一次实验”：当前 pin 的通信默认值与较早的运行公告存在时点差异，小档与 hero 的 backend 也需分别核对。数据候选库存、mixture 目标和 launcher token 预算是三个量；通信实现回退可能受 checkpoint 的 master 状态格式限制。该案例保留了固定 SHA 证据和作者计划的日期，没有把进行中的训练写成完成结果，也没有用当前源码替代实时 job 配置。
 
 ## 核心问题
 

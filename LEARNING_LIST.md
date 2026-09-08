@@ -2,6 +2,8 @@
 
 更新：2026-09-08。19 个项目已经克隆，初读笔记以 [sources.lock.json](sources.lock.json) 中的版本为准。
 
+如果当前问题是“一个超大 LLM 究竟如何从零训练出来”，先读 [全流程总览](handbook/00-end-to-end.md)，再按数据设计 → 分布式执行 → 后训练进入对应详章。[Marin 535B 案例](handbook/04-marin-535b-live-case-study.md) 把这些概念放回一个正在进行的真实运行；下表仍保留原始逐库索引，并不要求先读完所有 harness 再学习预训练。
+
 ## 学习等级
 
 - **L0 已定位**：找到项目与来源。

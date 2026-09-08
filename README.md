@@ -10,6 +10,7 @@
 
 | 入口 | 用途 |
 |---|---|
+| [超大 LLM 从零训练全流程](handbook/00-end-to-end.md) | 从目标、数据与 scaling pilots，到分布式预训练、agent RL 和发布；含四篇详章 |
 | [学习清单](LEARNING_LIST.md) | 19 个项目的学习顺序、核心问题、源码入口和阶段产物 |
 | [知识树](KNOWLEDGE_TREE.md) | 按知识组织项目：从任务与数据到训练、调度、GPU 内核 |
 | [仓库关系图](REPO_RELATIONSHIPS.md) | 区分真实依赖、可选后端、示例集成、项目谱系和概念对应 |
@@ -24,6 +25,7 @@
 - 19 份项目初读笔记：每份至少追踪一条具体代码/配置路径；它们不是全仓库审计或“已经学完”。
 - Pi 的低层 agent loop、Harbor Cookbook 的局部任务/评分接口已经进一步展开。
 - 已执行 [实验 001：Harbor 多维奖励](experiments/001-harbor-reward-contract/README.md)，结果与脚本均保存；没有运行完整 agent RL 或大模型训练。
+- 新增五篇 [训练全流程手册](handbook/00-end-to-end.md)，结合固定源码与当前一手报告，另以 [Marin 535B 进行中的训练](handbook/04-marin-535b-live-case-study.md) 追踪真实决策。源码、作者报告、工程综合与未验证事项分别标注。
 
 ## 目录
 
@@ -38,6 +40,7 @@ frontier-llm-lab/
 ├── repos.json                   19 个源码仓库注册表
 ├── sources.lock.json            本次学习的源码快照记录
 ├── SOURCE_INDEX.md              可点击的源码索引
+├── handbook/                    全流程、三篇机制详章与 Marin 535B 案例
 ├── sources/                     独立 upstream clones，外层 Git 忽略
 ├── notes/repositories/          逐仓库源码笔记
 ├── notes/connections/           跨仓库专题与证据
@@ -74,4 +77,4 @@ python experiments/001-harbor-reward-contract/run.py
 
 ## 下一次学习
 
-按 [进度文件中的下一步](PROGRESS.md#下一次从这里继续) 继续 Pi 的 session/runtime 路径，再验证 Harbor 真正加载奖励的过程。之后进入 Verifiers → Prime RL，把一条任务轨迹跟到 loss 和权重更新。
+当前优先沿 [全流程手册](handbook/00-end-to-end.md) 追踪一条预训练样本从数据到 loss / checkpoint 的完整路径，见 [进度文件中的下一步](PROGRESS.md#下一次从这里继续)。Pi session/runtime 与 Harbor 奖励加载保留为 agent RL 方向的续学入口。
