@@ -1,0 +1,141 @@
+{
+  "recorded_at": "2026-09-08T16:15:53.726251+00:00",
+  "source_commit": "e093c9a860b988d9d74901010ddddb9c7f124f92",
+  "input_sha256": {
+    "harbor_cookbook/recipes/multi-reward/solution/solve.sh": "14ba00a4a08f8c061a74d66c96484f43c0f9c167a74c2c1e7c28a5f00d9abd2c",
+    "harbor_cookbook/recipes/multi-reward/tests/test_correctness.py": "32370cf8e10c81cd1d9c39ce44dcf37e0055646af5f05bc95498281aa6f6e991",
+    "harbor_cookbook/recipes/multi-reward/tests/test_performance.py": "1a526559592b44ac560f253ca1d7005d83860aaaaf00bf45e035591d83246c80"
+  },
+  "runtime": {
+    "python": "3.11.4",
+    "platform": "Windows-10-10.0.26200-SP0"
+  },
+  "scope": "Actual upstream Python assertions, invoked directly; no pytest/Docker/Harbor/RL execution.",
+  "candidates": {
+    "upstream_reference": {
+      "rewards": {
+        "correctness": 1,
+        "performance": 1
+      },
+      "groups": {
+        "correctness": {
+          "reward": 1,
+          "tests": [
+            {
+              "name": "test_basic_dedup",
+              "passed": true,
+              "seconds": 9e-06
+            },
+            {
+              "name": "test_case_insensitive",
+              "passed": true,
+              "seconds": 3e-06
+            },
+            {
+              "name": "test_empty_input",
+              "passed": true,
+              "seconds": 2e-06
+            },
+            {
+              "name": "test_keeps_highest_id",
+              "passed": true,
+              "seconds": 3e-06
+            },
+            {
+              "name": "test_preserves_extra_fields",
+              "passed": true,
+              "seconds": 1e-06
+            },
+            {
+              "name": "test_single_record",
+              "passed": true,
+              "seconds": 1e-06
+            },
+            {
+              "name": "test_sorted_by_id",
+              "passed": true,
+              "seconds": 3e-06
+            }
+          ]
+        },
+        "performance": {
+          "reward": 1,
+          "tests": [
+            {
+              "name": "test_handles_100k_records_under_2s",
+              "passed": true,
+              "seconds": 0.058132
+            }
+          ]
+        }
+      }
+    },
+    "case_sensitive_mutation": {
+      "rewards": {
+        "correctness": 0,
+        "performance": 1
+      },
+      "groups": {
+        "correctness": {
+          "reward": 0,
+          "tests": [
+            {
+              "name": "test_basic_dedup",
+              "passed": false,
+              "reason": "AssertionError",
+              "seconds": 1.2e-05
+            },
+            {
+              "name": "test_case_insensitive",
+              "passed": false,
+              "reason": "AssertionError",
+              "seconds": 3e-06
+            },
+            {
+              "name": "test_empty_input",
+              "passed": true,
+              "seconds": 2e-06
+            },
+            {
+              "name": "test_keeps_highest_id",
+              "passed": true,
+              "seconds": 2e-06
+            },
+            {
+              "name": "test_preserves_extra_fields",
+              "passed": true,
+              "seconds": 1e-06
+            },
+            {
+              "name": "test_single_record",
+              "passed": true,
+              "seconds": 1e-06
+            },
+            {
+              "name": "test_sorted_by_id",
+              "passed": true,
+              "seconds": 2e-06
+            }
+          ]
+        },
+        "performance": {
+          "reward": 1,
+          "tests": [
+            {
+              "name": "test_handles_100k_records_under_2s",
+              "passed": true,
+              "seconds": 0.050725
+            }
+          ]
+        }
+      }
+    }
+  },
+  "observations": {
+    "reference_passes_both": true,
+    "incorrect_can_pass_performance": true,
+    "raw_vector_has_no_reward_key": true,
+    "unadapted_scalar_get_returns_zero": 0.0,
+    "illustrative_correctness_gated_scalar": 1.0
+  }
+}

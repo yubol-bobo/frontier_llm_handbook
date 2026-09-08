@@ -1,0 +1,64 @@
+# Frontier LLM Learning Lab
+
+从源码、实验配方与可重复的小实验，学习 LLM training、agent RL、harness 和系统基础设施。
+
+创建日期：2026-09-08。范围：此前清单的项目、最初四个项目，以及 NVIDIA Megatron-LM，共 **19 个独立源码仓库**。
+
+## 从这里开始
+
+| 入口 | 用途 |
+|---|---|
+| [学习清单](LEARNING_LIST.md) | 19 个项目的学习顺序、核心问题、源码入口和阶段产物 |
+| [知识树](KNOWLEDGE_TREE.md) | 按知识组织项目：从任务与数据到训练、调度、GPU 内核 |
+| [仓库关系图](REPO_RELATIONSHIPS.md) | 区分真实依赖、可选后端、示例集成、项目谱系和概念对应 |
+| [学习进度](PROGRESS.md) | 实际完成了什么，接下来从哪里继续 |
+| [源码快照](SOURCE_INDEX.md) | 本地目录、固定 commit、克隆完整性与版本边界 |
+| [学习方法](HOW_TO_STUDY.md) | 每次如何读代码、做实验、记笔记和更新知识树 |
+| [术语表](GLOSSARY.md) | 连接训练与系统设计的共用概念 |
+
+## 当前成果
+
+- 19/19 仓库已克隆，全部记录来源和固定 SHA。
+- 19 份项目初读笔记：每份至少追踪一条具体代码/配置路径；它们不是全仓库审计或“已经学完”。
+- Pi 的低层 agent loop、Harbor Cookbook 的局部任务/评分接口已经进一步展开。
+- 已执行 [实验 001：Harbor 多维奖励](experiments/001-harbor-reward-contract/README.md)，结果与脚本均保存；没有运行完整 agent RL 或大模型训练。
+
+## 目录
+
+```text
+frontier-llm-lab/
+├── LEARNING_LIST.md              学习清单
+├── KNOWLEDGE_TREE.md             概念知识树
+├── REPO_RELATIONSHIPS.md         有证据的项目关系
+├── PROGRESS.md                   阶段状态和续学入口
+├── HOW_TO_STUDY.md               持续学习流程
+├── GLOSSARY.md                   术语与接口语义
+├── repos.json                   19 个源码仓库注册表
+├── sources.lock.json            本次学习的源码快照记录
+├── SOURCE_INDEX.md              可点击的源码索引
+├── sources/                     独立 upstream clones，外层 Git 忽略
+├── notes/repositories/          逐仓库源码笔记
+├── notes/connections/           跨仓库专题与证据
+├── notes/sessions/              每次学习记录
+├── experiments/                 自有实验、README 和小型结果
+├── templates/                   可复用笔记模板
+└── tools/                       克隆、快照与完整性检查工具
+```
+
+源码使用 depth=1 的浅克隆，当前工作树可读，未获取完整 Git 历史、submodule 内容、LFS 大文件、模型权重或训练数据。学习资料由这个外层本地 Git 仓库管理。没有创建远程 GitHub 仓库或发布内容。
+
+## 常用命令
+
+在本目录执行，工具仅使用 Python 标准库与 Git：
+
+```powershell
+python tools/clone_repos.py
+python tools/validate_learning_repo.py
+python experiments/001-harbor-reward-contract/run.py
+```
+
+`clone_repos.py` 默认补齐缺失仓库，检查已有来源，不更新或重置已有源码。若在新电脑恢复已记录的版本，使用 `python tools/clone_repos.py --restore-lock`。更新源码后，旧笔记继续引用原始 SHA；为新的学习创建记录，再按需要运行 `snapshot_sources.py`。
+
+## 下一次学习
+
+按 [进度文件中的下一步](PROGRESS.md#下一次从这里继续) 继续 Pi 的 session/runtime 路径，再验证 Harbor 真正加载奖励的过程。之后进入 Verifiers → Prime RL，把一条任务轨迹跟到 loss 和权重更新。

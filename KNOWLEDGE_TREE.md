@@ -1,0 +1,124 @@
+# Frontier LLM 知识树
+
+版本：v0.1，2026-09-08。来源：19 份局部源码笔记与一个 CPU 评分实验。这是第一轮知识结构，后续按实验修正。
+
+## 知识树：按要解决的问题组织
+
+```text
+Frontier LLM：从任务与数据到学习与执行
+│
+├── 1. Agent 怎样行动？
+│   ├── 模型请求、工具调用、steering 与终止条件
+│   ├── context transform、compaction、分叉、恢复
+│   ├── live events 与 durable session log
+│   └── 项目：Pi、DeepSeek Harness
+│
+├── 2. 怎样定义任务、环境与反馈？
+│   ├── Task / Harness / Runtime 的职责和所有权
+│   ├── sandbox 启动、超时、隔离、清理与 artifact
+│   ├── verifier 覆盖、奖励向量、scalarization
+│   ├── 数据泄漏、held-out evaluation 与失败分类
+│   └── 项目：Harbor Cookbook、Harbor、Verifiers
+│
+├── 3. 模型为什么这样训练？
+│   ├── 数据清洗、混合、去重、tokenization 与 doc masking
+│   ├── 架构/优化器消融、token budget、长上下文与阶段训练
+│   ├── 实验依赖图、缓存、checkpoint、评估与可追溯性
+│   └── 项目：SmolLM、OLMo-core、Marin
+│
+├── 4. 反馈怎样变成参数更新？
+│   ├── SFT / preference learning / RLVR
+│   ├── trajectory → tokens / roles / masks / reward
+│   ├── group advantage、ratio、KL、有效 token 归一化
+│   ├── 异步队列、policy staleness、过滤、权重同步
+│   ├── token 一致性、共享前缀去重、MoE routing replay
+│   └── 项目：Open Instruct、Prime RL、APEX recipe、verl、slime、Miles
+│
+├── 5. 怎样正确而高效地进行分布式训练？
+│   ├── rank / process group / device mesh
+│   ├── DP / FSDP / HSDP、TP、PP、CP、EP
+│   ├── accumulation、重计算、低精度、通信重叠
+│   ├── checkpoint 恢复、编译、profiling 与有效 token 吞吐
+│   └── 项目：TorchTitan、Megatron-LM / Megatron Core
+│
+├── 6. 怎样高效生成 rollout？
+│   ├── prefill / decode、batch admission 与调度
+│   ├── KV prefix reuse、锁定、驱逐与缓存命名空间
+│   ├── CPU/GPU overlap、分离部署、专家并行
+│   └── 项目：SGLang
+│
+└── 7. GPU 上的数据怎样移动和计算？
+    ├── shape / layout / precision → grouped GEMM
+    ├── JIT 特化、编译缓存、冷启动与热运行
+    ├── expert dispatch → compute → combine
+    ├── NVLink / RDMA、stream / event 与 buffer lifetime
+    └── 项目：DeepGEMM、DeepEP
+```
+
+项目可以覆盖多个分支；树中的位置是主学习角色，不是互斥分类。
+
+## 跨层数据流
+
+下图表达系统概念，**不是仓库依赖图**。真实软件连接见 [REPO_RELATIONSHIPS.md](REPO_RELATIONSHIPS.md)。
+
+```mermaid
+flowchart TD
+  Data[数据配方与训练任务] --> Agent[Harness 执行与环境交互]
+  Agent --> Trace[轨迹：消息 token 版本 工具反馈]
+  Agent --> Artifact[任务产物与环境状态]
+  Artifact --> Verifier[Verifier 与奖励向量]
+  Verifier --> Objective[标量目标与评测规则]
+  Trace --> Learner[Mask Advantage Loss]
+  Objective --> Learner
+  Learner --> Train[分布式训练与优化器]
+  Train --> Weights[Checkpoint 与权重同步]
+  Weights --> Serving[推理调度与 KV Cache]
+  Serving --> Agent
+  Train --> GPU[GPU 计算与通信]
+  Serving --> GPU
+  Eval[独立评测与实验记录] -.-> Data
+  Weights --> Eval
+```
+
+## 第一轮学到的五条连接
+
+### A. Harness 是 RL 数据生产的一部分
+
+Pi 的工具事件次序与上下文转换、DeepSeek 的日志投影决定了模型实际看见的内容。slime/Miles 要把这样的交互变成可训练 token 序列，因此必须继续处理 token identity、分叉和 loss mask。应用层会话正确与训练层概率正确需要分别验证。
+
+证据：[Pi 笔记](notes/repositories/pi.md)、[DeepSeek 笔记](notes/repositories/deepseek-harness.md)、[RL 连接](notes/connections/rl.md)。真实集成还包括 Verifiers 的 Pi harness adapter。
+
+### B. Reward 是一个跨层接口
+
+任务声明目标，verifier 只检查其覆盖的属性，adapter 决定如何传分数，trainer 优化最终标量。本次实验的错误解仍获得性能分，说明任何单项指标都要放回任务目标中解释。
+
+证据：[Harbor Cookbook 笔记](notes/repositories/harbor-cookbook.md)、[实验 001 原始结果](experiments/001-harbor-reward-contract/results.json)、[环境与 infra 连接](notes/connections/infra.md)。
+
+### C. 算法名称相同，训练语义仍可能不同
+
+本次读到的 Prime RL 与 verl 的 GRPO 分组处理默认值不同；Open Instruct 还分开处理策略更新比率与 train/infer 概率差异修正。比较框架时，需先对齐 advantage、loss denominator、mask 和采样版本，再讨论吞吐。
+
+证据：[RL 连接中归一化对照](notes/connections/rl.md)、[Open Instruct](notes/repositories/open-instruct.md)。结论限定到实际阅读的函数和配置，不外推到所有模式。
+
+### D. MoE 把训练、推理与通信紧密连起来
+
+SGLang 负责生成，Megatron 负责训练；Miles 的 replay 需要对齐两边 expert 路由。更底层的 DeepEP 执行 token 分发/合并，DeepGEMM 消费特定 expert layout。数据布局、stream 和 buffer 生命周期也属于正确性，而不只是性能细节。
+
+证据：[Miles](notes/repositories/miles.md)、[Megatron](notes/repositories/megatron-lm.md)、[SGLang](notes/repositories/sglang.md)、[GPU 连接](notes/connections/infra.md)。不同 DeepEP 接口版本不能未经验证混用。
+
+### E. 研究复现需要两套版本记录
+
+第一套是“我们读了哪份源码”，由本实验室 SHA 快照记录。第二套是“一次实验实际运行了哪些兼容版本”，来自各项目自己的 lock、子模块、镜像和模型/数据版本。独立 clone 的 HEAD 不能替代被依赖版本。
+
+例子：Prime RL 的 Verifiers gitlink、Verifiers 的 Pi npm release、Open Instruct 的 OLMo-core pin，以及 Cookbook 的 Harbor feature branch。见 [版本连接表](REPO_RELATIONSHIPS.md#版本连接表)。
+
+## 接下来要长出的分支
+
+- [ ] Pi durable runtime 与低层 loop 的关系：一次取消/恢复会产生哪些可重放事件？
+- [ ] 同一个任务如何经过 Verifiers/Pi，再进入 Prime RL 的完整训练 trace？
+- [ ] Harbor 多维分数到训练标量的实际消费链路。
+- [ ] 长上下文 ablation 如何保持有效 token budget 可比，并避免混入多个变量？
+- [ ] 相同 MoE 路由在不同并行切分中如何保持 token 对齐？
+- [ ] 环境长尾、生成长尾、权重同步中，当前任务的主要瓶颈在哪里？
+
+新增节点必须有具体问题、源码或实验依据，并链接回项目笔记；猜测保留为待验证问题。

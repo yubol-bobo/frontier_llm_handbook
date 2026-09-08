@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "created": "2026-09-08",
+  "scope": "前次清单、用户最初四个项目，以及 NVIDIA Megatron-LM；19 个独立源码仓库。",
+  "repositories": [
+    {"id":"pi","name":"Pi","url":"https://github.com/earendil-works/pi.git","layer":"agent-harness","order":1,"group":"harness"},
+    {"id":"deepseek-harness","name":"DeepSeek Harness","url":"https://github.com/deepseek-ai/deepseek-harness.git","layer":"agent-harness","order":2,"group":"harness"},
+    {"id":"harbor-cookbook","name":"Harbor Cookbook","url":"https://github.com/harbor-framework/harbor-cookbook.git","layer":"environment-recipe","order":3,"group":"harness"},
+    {"id":"harbor","name":"Harbor","url":"https://github.com/harbor-framework/harbor.git","layer":"environment-evaluation","order":4,"group":"infra"},
+    {"id":"verifiers","name":"Verifiers","url":"https://github.com/PrimeIntellect-ai/verifiers.git","layer":"environment-reward","order":5,"group":"rl"},
+    {"id":"prime-rl","name":"Prime RL","url":"https://github.com/PrimeIntellect-ai/prime-rl.git","layer":"rl-training","order":6,"group":"rl"},
+    {"id":"apex-agents-skyrl-recipe","name":"APEX Agents SkyRL Recipe","url":"https://github.com/Mercor-Intelligence/ApexAgents-SkyRL-Recipe.git","layer":"agent-rl-recipe","order":7,"group":"rl"},
+    {"id":"smollm","name":"SmolLM","url":"https://github.com/huggingface/smollm.git","layer":"model-research","order":8,"group":"training"},
+    {"id":"olmo-core","name":"OLMo-core","url":"https://github.com/allenai/OLMo-core.git","layer":"pretraining","order":9,"group":"training"},
+    {"id":"open-instruct","name":"Open Instruct","url":"https://github.com/allenai/open-instruct.git","layer":"posttraining","order":10,"group":"training"},
+    {"id":"marin","name":"Marin","url":"https://github.com/marin-community/marin.git","layer":"open-research-platform","order":11,"group":"training"},
+    {"id":"torchtitan","name":"TorchTitan","url":"https://github.com/pytorch/torchtitan.git","layer":"distributed-training","order":12,"group":"training"},
+    {"id":"megatron-lm","name":"Megatron-LM / Megatron Core","url":"https://github.com/NVIDIA/Megatron-LM.git","layer":"distributed-training","order":13,"group":"training"},
+    {"id":"verl","name":"verl","url":"https://github.com/verl-project/verl.git","layer":"rl-training","order":14,"group":"rl"},
+    {"id":"slime","name":"slime","url":"https://github.com/THUDM/slime.git","layer":"rl-training","order":15,"group":"rl"},
+    {"id":"miles","name":"Miles","url":"https://github.com/radixark/miles.git","layer":"rl-training","order":16,"group":"rl"},
+    {"id":"sglang","name":"SGLang","url":"https://github.com/sgl-project/sglang.git","layer":"inference-rollout","order":17,"group":"infra"},
+    {"id":"deepgemm","name":"DeepGEMM","url":"https://github.com/deepseek-ai/DeepGEMM.git","layer":"gpu-compute","order":18,"group":"infra"},
+    {"id":"deepep","name":"DeepEP","url":"https://github.com/deepseek-ai/DeepEP.git","layer":"gpu-communication","order":19,"group":"infra"}
+  ]
+}
