@@ -1,7 +1,9 @@
 # Learning repository workflow
 
 This is a Chinese-language, source-grounded public curriculum and resource handbook
-for learners without access to frontier labs. Start with README.md, ROADMAP.md,
+for frontier LLM end-to-end training knowledge and engineering foundations and
+advancement. It serves beginners and practitioners, especially learners without
+access to frontier labs. Start with README.md, ROADMAP.md,
 COVERAGE.md, PROGRESS.md, sources.lock.json and the current module or repository note.
 The user wants detailed coverage, explicit prerequisites and learning order,
 primary sources, practical exercises and connections between projects.
@@ -20,6 +22,10 @@ publish their manifest and recorded commits, not nested copies of those reposito
   experiments distinct. Do not mark a module completed because its guide exists.
 - Every core module should name prerequisites, ordered reading, CPU-accessible
   exercises, GPU extensions where relevant, deliverables and exit criteria.
+- Maintain both learning outcomes: explain end-to-end training mechanisms and
+  design tradeoffs, and build engineering ability through implementation,
+  correctness checks, reproducibility, diagnosis, performance and reliability.
+  Tie advancement claims to concrete learner artifacts and their actual scope.
 - Prefer upstream fixed-SHA links for public-facing source entry points; ignored
   sources/ paths alone are unusable to readers browsing the handbook on GitHub.
 - Keep gaps and openness boundaries explicit. Public inference code or weights

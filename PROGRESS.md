@@ -4,6 +4,8 @@
 
 本页记录维护者实际工作。读者从 [ROADMAP](ROADMAP.md) 进入课程，并使用 [个人学习模板](templates/learner-progress.md)；课程设计完成不表示个人结业。知识覆盖成熟度见 [COVERAGE](COVERAGE.md)。
 
+已按用户明确的定位，将“前沿 LLM 端到端训练知识”与“工程能力的基础与提升”统一到仓库入口、能力层级、学习方法和验收模板。本次定位完善属于文档建设，实验与模块完成状态保持原记录。
+
 主仓库：[yubol-bobo/frontier_llm_handbook](https://github.com/yubol-bobo/frontier_llm_handbook)，后续以 `origin/main` 为主线。本地学习目录保留 `frontier-llm-lab`；upstream clones 由清单与固定 SHA 恢复。
 
 ## 当前状态
