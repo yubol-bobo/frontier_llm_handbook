@@ -332,6 +332,23 @@
       "working_tree_changes": "",
       "verified_at": "2026-09-08T23:16:47.572356+00:00",
       "status": "cloned"
+    },
+    {
+      "id": "sol-pi",
+      "requested_url": "https://github.com/NVlabs/SoL-Pi.git",
+      "origin": "https://github.com/NVlabs/SoL-Pi.git",
+      "path": "sources/sol-pi",
+      "commit": "d7ecfc089944f0d04b80122a0a9a6ca0d786f3d0",
+      "branch": "main",
+      "commit_date": "2026-09-11T17:03:15+02:00",
+      "shallow": true,
+      "tracked_files": 64,
+      "submodules": 0,
+      "lfs_pointer_files": [],
+      "working_tree_changes": "",
+      "verified_at": "2026-09-11T22:04:20.925397+00:00",
+      "status": "cloned"
     }
-  ]
+  ],
+  "updated_at": "2026-09-11T22:04:20.925397+00:00"
 }

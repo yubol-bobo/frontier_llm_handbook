@@ -10,6 +10,7 @@
 
 ```mermaid
 flowchart LR
+  SoLPi[SoL-Pi] -->|公开扩展 API| Pi
   Cookbook[Harbor Cookbook] -->|任务框架| Harbor[Harbor]
   Cookbook -.->|文档 pointer| SkyRL[SkyRL 外部]
   APEX[APEX recipe] -->|Trial 依赖| Harbor
@@ -40,6 +41,7 @@ flowchart LR
 | Prime RL | Verifiers | 直接依赖、git submodule、Episode/Trace 接口 | [RL 连接](notes/connections/rl.md) |
 | Prime RL | TorchTitan | Linux 依赖，复用 gradient clipping 等组件；不等于使用整个 Titan trainer | [RL 连接](notes/connections/rl.md) |
 | Verifiers | Pi | npm release + ACP/provider 的可选 harness adapter | [Verifiers](notes/repositories/verifiers.md) |
+| SoL-Pi | Pi | 直接使用公开扩展 API；开发锁定 0.84.2，独立 Pi 快照 0.85.1 未作为兼容组合测试 | [SoL-Pi](notes/repositories/sol-pi.md) |
 | Verifiers | Harbor | CLI 与 Python task model 的可选 taskset adapter | [Verifiers](notes/repositories/verifiers.md) |
 | Harbor Cookbook | Harbor | 任务框架直接依赖；特定训练脚本另指向 feature branch | [Harness 连接](notes/connections/harness.md) |
 | Harbor Cookbook | SkyRL | 文档 pointer，完整集成代码在外部仓库 | [Cookbook](notes/repositories/harbor-cookbook.md) |
@@ -82,6 +84,7 @@ flowchart LR
 |---|---|---|
 | Prime RL | `deps/verifiers` gitlink 为 `828488fffe31aa3332b9d1bd4bd9ee320e375cf1` | 独立 Verifiers HEAD 是 `27bbd216df0af719a43705866b2cf6139bcc95de`；submodule 内容未初始化 |
 | Verifiers Pi adapter | npm Pi coding-agent `0.84.1` | 独立 Pi clone 的 package version 是 `0.85.1`；不是已测试组合 |
+| SoL-Pi | 开发依赖为 Pi `0.84.2`；运行期使用 peer dependencies | 独立 Pi clone 为 `0.85.1`，不能用 wildcard peer 范围证明兼容 |
 | Open Instruct | OLMo-core pin `fa6c5014c9f6e9ee789da2d9c20d5126fee8df0d` | 独立 OLMo-core HEAD 与该 pin 不同 |
 | APEX recipe | Harbor `0.21.0`、作者机器上的 SkyRL 0.3.0 checkout 路径 | 不能用独立 Harbor HEAD 和任意 SkyRL main 直接替代；训练数据未公开 |
 | Cookbook harbor_rl | Harbor `feature/harbor-rl-4d0` | 当前独立 Harbor main 没有该示例导入的 `harbor.rl` |
@@ -92,7 +95,7 @@ flowchart LR
 
 ## 范围外节点
 
-SkyRL、vLLM、nanotron、datatrove、Tinker Cookbook、TRL/PEFT、DeepSpeed、Ray 等是阅读中出现的外部关联；没有计入本次 20 个独立 clone，也没有递归克隆所有第三方依赖。SkyRL 与 nanotron 是后续扩展的优先候选，因为它们分别补齐 APEX 和 SmolLM 的运行器代码。
+SkyRL、vLLM、nanotron、datatrove、Tinker Cookbook、TRL/PEFT、DeepSpeed、Ray 等是阅读中出现的外部关联；没有计入本次 21 个独立 clone，也没有递归克隆所有第三方依赖。SkyRL 与 nanotron 是后续扩展的优先候选，因为它们分别补齐 APEX 和 SmolLM 的运行器代码。
 
 ## Claude Code / Agent SDK 的两类连接
 

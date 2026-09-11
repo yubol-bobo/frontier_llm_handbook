@@ -30,7 +30,7 @@
 | Serving、KV、prefill/decode、批处理 | M09 | 课程、讲解、源码 | 受控 workload 的端到端 latency/throughput |
 | SFT、偏好、reward model | M10 | 课程、讲解、源码 | 小数据全参基线；LoRA/QLoRA 另作选读 |
 | RL 目标、优势、KL、采样、同步更新 | M11 | 课程、讲解、源码 | 一个可追踪的真实小模型闭环 |
-| Harness、工具、状态、compaction、恢复 | M12 | 课程、Pi/DeepSeek/Claude Code 对照、SDK 与历史快照、CPU 状态机实验 | 真实 SDK、进程恢复与模型评测 |
+| Harness、工具、状态、compaction、恢复 | M12 | Pi/SoL-Pi/DeepSeek/Claude Code 对照、CPU 状态机与成本函数实验 | 真实模型提效、跨版本集成与端到端故障恢复 |
 | Sandbox、任务、verifier、reward 聚合 | M12/M14 | 课程、源码、CPU 奖励实验 001 | 真实 Trial 生命周期和评分隔离 |
 | 异步 RL、policy 版本、TITO、路由重放 | M13 | 课程、讲解、源码 | 队列模拟→真实训练/推理版本对照 |
 | 独立评测、judge、成本、错误与安全回归 | M03/M14 | 课程、讲解；lm-eval/Inspect 入口 | 本地评测套件、评分器审计及重复采样 |

@@ -1,6 +1,6 @@
 # Translation maintenance / 双语维护
 
-The website supports Chinese and English for its interface and all 54 published documents. The Chinese documents at their original paths remain canonical. Their English counterparts live in `en/`, with the same relative filenames. Read the [English website](https://yubol-bobo.github.io/frontier_llm_handbook/?lang=en#/learn) or [English Markdown](en/README.md).
+The website supports Chinese and English for its interface and all 57 published documents. The Chinese documents at their original paths remain canonical. Their English counterparts live in `en/`, with the same relative filenames. Read the [English website](https://yubol-bobo.github.io/frontier_llm_handbook/?lang=en#/learn) or [English Markdown](en/README.md).
 
 ## Updating a translation
 

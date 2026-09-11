@@ -13,7 +13,7 @@ test('generated curriculum and source inventory preserve canonical identities',a
   for(const seminar of content.seminars)assert.ok(!/^F\d+/.test(seminar.title));
   const registry=JSON.parse(await fs.readFile(path.join(root,'repos.json'),'utf8')).repositories;
   assert.deepEqual(content.resources.map(r=>r.id),registry.map(r=>r.id));
-  assert.equal(content.resources.length,20);
+  assert.equal(content.resources.length,21);
   assert.deepEqual(content.modules.find(m=>m.id==='M14').prerequisites,['M03']);
   for(const m of content.modules){assert.ok(m.html.includes('验收'));assert.ok(m.html.includes('练习'));}
 });
@@ -51,7 +51,7 @@ test('Markdown preserves tables, source anchors and fenced code while excluding 
 });
 
 test('source evidence, manuscript text and connection targets are retained',async()=>{
-  assert.equal(content.connections.length,7);
+  assert.equal(content.connections.length,8);
   for(const c of content.connections){assert.ok(content.docs[c.source]);for(const id of c.modules)assert.ok(content.modules.some(m=>m.id===id));}
   for(const r of content.resources){assert.match(r.commit,/^[a-f0-9]{40}$/);assert.ok(content.docs[r.note].markdown.includes(r.commit));assert.ok(r.question&&r.stop);}
   const raw=await fs.readFile(path.join(root,'lessons/01-one-token-to-update.md'),'utf8');

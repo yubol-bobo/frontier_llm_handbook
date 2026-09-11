@@ -31,3 +31,9 @@ RL 层还需要保存实际采样 token、概率、角色 mask 和模型版本�
 [固定 SDK 笔记](../repositories/claude-agent-sdk.md) 展示 Python 回调如何通过控制通道返回 CLI；不能把 SDK 的 allow/deny 序列化当成整个 sandbox 的实现证明。[进阶讲解](../../handbook/05-claude-code-harness.md) 把它与 Pi 的执行事件和 DeepSeek 的日志投影并读。
 
 [CPU 实验](../../experiments/harness-state-machine/README.md) 的未知结果场景说明：工具可能已经产生副作用，而日志尚无完成记录。自动重试可能重复动作；需要幂等键、外部核对或明确的人工处置。日志恢复、任务成功评分与 RL token 对齐分别验收。
+
+## SoL-Pi → Pi：直接扩展；其他框架：机制对照
+
+[SoL-Pi 源码笔记](../repositories/sol-pi.md) 追踪对 Pi 公开工具定义、事件和 native compaction 的直接调用。开发版本 0.84.2 与独立 Pi 快照 0.85.1 需要区分。与 Claude Code / DeepSeek 的连接是机制比较，不是直接依赖；与 Harbor/APEX 的连接是独立评分与训练轨迹的设计问题，未接成可运行栈。
+
+[学习专题](../../handbook/06-sol-pi-efficient-harnesses.md) 把工具往返、输出重放、证据完整性、缓存重建和异步继续放到同一条执行链中。必须分别验证原始证据可取回、模型实际看到了什么以及最终任务是否完成。

@@ -1,6 +1,6 @@
 # Frontier LLM 知识树
 
-版本：v0.4，2026-09-08。来源：20 份局部源码笔记、三个局部 CPU 实验，以及 [超大模型训练全流程](handbook/00-end-to-end.md) 的源码 / 一手报告综合。课程按 [ROADMAP](ROADMAP.md) 的 M00–M15 与 F01–F06 学习；下文按问题分支，不代表学习先后。覆盖深度与缺口见 [COVERAGE](COVERAGE.md)。
+版本：v0.5，2026-09-11。来源：21 份局部源码笔记、四个局部 CPU 实验，以及 [超大模型训练全流程](handbook/00-end-to-end.md) 的源码 / 一手报告综合。课程按 [ROADMAP](ROADMAP.md) 的 M00–M15 与 F01–F06 学习；下文按问题分支，不代表学习先后。覆盖深度与缺口见 [COVERAGE](COVERAGE.md)。
 
 ## 新增的学习连接
 
@@ -35,7 +35,7 @@ Frontier LLM：从任务与数据到学习与执行
 │   ├── 模型请求、工具调用、steering 与终止条件
 │   ├── context transform、compaction、分叉、恢复
 │   ├── live events 与 durable session log
-│   └── 项目：Pi、DeepSeek Harness、Claude Code / Agent SDK
+│   └── 项目：Pi、SoL-Pi、DeepSeek Harness、Claude Code / Agent SDK
 │
 ├── 2. 怎样定义任务、环境与反馈？
 │   ├── Task / Harness / Runtime 的职责和所有权
@@ -154,3 +154,11 @@ SGLang 负责生成，Megatron 负责训练；Miles 的 replay 需要对齐两�
 [Claude Code 案例](handbook/05-claude-code-harness.md) 将 Pi/DeepSeek 的状态问题推进到 SDK 控制协议、权限回调与长任务。执行日志保存发生了什么，compaction 后的上下文决定下一步看见什么；进入 Agent RL 还要额外保存真实 sampled token、logprob、mask、分支和策略版本。文本 session 不能自动充当可训练轨迹。
 
 [CPU 实验](experiments/harness-state-machine/README.md) 验证权限拒绝前不修改状态、循环预算和未知执行结果。下一步在同一任务、模型和预算下比较有无摘要、笔记和子任务隔离，使用独立 verifier；这些真实模型实验尚未执行。
+
+## SoL-Pi：效率、证据和能力需要共同验收
+
+[SoL-Pi](handbook/06-sol-pi-efficient-harnesses.md) 直接扩展 Pi；Action Fusion 减少可预测的模型往返，ObservationPack 将历史大输出投影为可回读引用，Evidence-Preserving Reducer 校验选中引文，Online Context Compact 结合剩余请求、缓存重建和窗口压力决策。它优化执行过程，公开扩展没有实现模型参数的 RL 更新。
+
+与 [Claude Code](handbook/05-claude-code-harness.md) 和 DeepSeek Harness 对照上下文与生命周期；与 M09 对照缓存经济性；与 M14 比较预算匹配的能力和成本；接入 M13 时另外保留原始 token、logprob、mask 与版本。引用可回读不保证模型会回读，引文真实也不保证摘要完整。
+
+[实验 004](experiments/004-sol-pi-contracts/README.md) 已执行 8 个真实上游成本函数场景。下一步是带独立 verifier 的基线/单开关消融；质量与费用收益尚未由本仓库复现。

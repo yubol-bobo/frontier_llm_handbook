@@ -1,12 +1,14 @@
 # 资源地图：在哪个阶段读，为什么读，读到哪里停
 
-核查日期：2026-09-08。课程顺序见 [ROADMAP](ROADMAP.md)。这里按学习用途组织资源，不按热度或 stars 排名。第一轮每模块只选核心材料，其余按问题选读。
+原有条目核查日期：2026-09-08；SoL-Pi 新增核查：2026-09-11。课程顺序见 [ROADMAP](ROADMAP.md)。这里按学习用途组织资源，不按热度或 stars 排名。第一轮每模块只选核心材料，其余按问题选读。
 
-**状态说明：**“固定源码”表示已克隆、登记 SHA 并有局部笔记，不表示完整运行过；“外部入口”表示本轮核实了官方页面及学习用途，没有纳入 20 个源码快照，也没有安装或完成其作业。论文的结论限于论文实验条件；模型报告、推理 demo 与完整训练配方分别标识。
+**状态说明：**“固定源码”表示已克隆、登记 SHA 并有局部笔记，不表示完整运行过；“外部入口”表示本轮核实了官方页面及学习用途，没有纳入 21 个源码快照，也没有安装或完成其作业。论文的结论限于论文实验条件；模型报告、推理 demo 与完整训练配方分别标识。
 
 <a id="1-主干19-个固定源码项目"></a>
 
-## 1. 主干：20 个固定源码项目
+<a id="1-主干20-个固定源码项目"></a>
+
+## 1. 主干：21 个固定源码项目
 
 | 项目 / 固定源码笔记 | 第一次进入 | 最值得带着读的问题 | 第一轮停止条件 |
 |---|---|---|---|
@@ -24,6 +26,7 @@
 | [Harbor](notes/repositories/harbor.md) | M12，M14 | 环境、agent、verifier 的生命周期怎样可靠结束？ | 正常、超时和失败分支都能解释 |
 | [Verifiers](notes/repositories/verifiers.md) | M12 | task / harness / runtime / rollout 谁拥有状态？ | 把一次 rollout 跟到评分与 artifact |
 | [Pi](notes/repositories/pi.md) | M12 | 事件、工具、上下文和 durable session 如何衔接？ | 跟一次受控工具调用与取消/恢复问题 |
+| [SoL-Pi](notes/repositories/sol-pi.md) | M12，在 Pi 之后；M09/M14 回访 | 减少调用与上下文重放时，怎样保持证据、控制成本并独立验收？ | 追四个机制，手算压缩盈亏平衡，检查异常与评测边界 |
 | [Claude Code / Agent SDK](notes/repositories/claude-agent-sdk.md) | M12，在 Pi 之后 | SDK 控制协议、历史 harness 快照与当前行为怎样区分？ | 追权限回调，解释 compaction 与恢复，并通过 CPU 状态机实验 |
 | [DeepSeek Harness](notes/repositories/deepseek-harness.md) | M12 | 日志如何投影成模型请求？ | 指出上下文与日志必须满足的不变量 |
 | [Prime RL](notes/repositories/prime-rl.md) | M11 概览，M13 深入 | 任务生成、分组、过滤、队列和训练如何连接？ | 一条样本的 reward/token/version 到 learner |

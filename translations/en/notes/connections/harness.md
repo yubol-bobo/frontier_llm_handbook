@@ -41,3 +41,11 @@ The reusable question is: **what did the task write, what did the verifier parse
 The [pinned SDK note](../repositories/claude-agent-sdk.md) shows how Python callbacks return responses to the CLI over a control channel; SDK allow/deny serialization does not establish the implementation of the entire sandbox. The [advanced guide](../../handbook/05-claude-code-harness.md) compares this with Pi execution events and DeepSeek log projection.
 
 The unknown-outcome case in the [CPU experiment](../../experiments/harness-state-machine/README.md) shows that a tool may have produced a side effect before its completion was journaled. Automatic retry may duplicate the action; idempotency keys, external reconciliation, or explicit human handling are needed. Validate log recovery, task-success scoring, and RL token alignment separately.
+
+<a id="sol-pi--pi直接扩展其他框架机制对照"></a>
+
+## SoL-Pi → Pi: direct extension; other frameworks: mechanism comparisons
+
+The [SoL-Pi source note](../repositories/sol-pi.md) traces direct calls to Pi public tool definitions, events, and native compaction. Distinguish the development version 0.84.2 from the independent Pi snapshot 0.85.1. Connections to Claude Code / DeepSeek compare mechanisms rather than establish dependencies. Connections to Harbor/APEX concern independent scoring and training trajectories; no runnable combined stack was assembled.
+
+The [study guide](../../handbook/06-sol-pi-efficient-harnesses.md) connects tool round trips, output replay, evidence completeness, cache rebuilding, and asynchronous continuation. Verify access to original evidence, what the model actually saw, and final task completion separately.

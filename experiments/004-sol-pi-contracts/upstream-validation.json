@@ -1,0 +1,136 @@
+{
+  "schema_version": 1,
+  "recorded_date": "2026-09-11",
+  "status": "upstream_check_failed_on_native_windows",
+  "source": {
+    "repository": "https://github.com/NVlabs/SoL-Pi",
+    "commit": "d7ecfc089944f0d04b80122a0a9a6ca0d786f3d0",
+    "lockfile_sha256": "368093754f6b688f8eaa231dd16242d78f24f2f3b26f569d2196179b0f96640f",
+    "tracked_source_modified": false
+  },
+  "environment": {
+    "os": "Microsoft Windows NT 10.0.26200.0",
+    "platform": "win32",
+    "node": "v22.19.0",
+    "npm": "10.9.3",
+    "powershell": "7.6.5",
+    "dependencies": {
+      "@earendil-works/pi-agent-core": "0.84.2",
+      "@earendil-works/pi-ai": "0.84.2",
+      "@earendil-works/pi-coding-agent": "0.84.2",
+      "@earendil-works/pi-tui": "0.84.2",
+      "typescript": "5.9.3",
+      "vitest": "4.1.9"
+    }
+  },
+  "commands": [
+    {
+      "command": "npm ci --ignore-scripts",
+      "exit_code": 0,
+      "status": "passed",
+      "packages_added": 279,
+      "packages_audited": 283,
+      "npm_reported_moderate_advisories": 2
+    },
+    {
+      "command": "npm run check",
+      "expansion": "npm run typecheck && npm test && npm pack --dry-run",
+      "exit_code": 1,
+      "status": "failed",
+      "typecheck": "tsc --noEmit: passed",
+      "tests": {
+        "runner": "vitest run",
+        "files_total": 18,
+        "files_passed": 15,
+        "files_failed": 3,
+        "files_skipped": 0,
+        "total": 139,
+        "passed": 134,
+        "failed": 5,
+        "skipped": 0,
+        "duration_seconds": 16.94
+      },
+      "pack_stage": "not reached: preceding test failure short-circuited the command"
+    },
+    {
+      "command": "npm pack --dry-run --json",
+      "exit_code": 0,
+      "status": "passed_separately",
+      "entry_count": 35,
+      "archive_created": false,
+      "package_content_assertions_total": 9,
+      "package_content_assertions_passed": 9,
+      "package_content_assertions": {
+        "entrypoint_present": true,
+        "example_config_present": true,
+        "online_context_compact_entrypoint_present": true,
+        "config_preflight_script_present": true,
+        "install_protocol_present": true,
+        "no_pi_monorepo_packages": true,
+        "no_superpowers_docs": true,
+        "AGENTS_md_excluded": true,
+        "CLAUDE_md_excluded": true
+      },
+      "note": "These separate assertions do not replace the two failed upstream package tests."
+    },
+    {
+      "command": "node scripts/check-pi-compat.mjs",
+      "exit_code": 0,
+      "status": "passed",
+      "checks": "Required public exports/prototype methods and CONFIG_DIR_NAME; no CLI startup or provider call."
+    }
+  ],
+  "failures": [
+    {
+      "test": "contains the standalone entrypoint and no Pi monorepo source",
+      "path": "tests/package.test.ts",
+      "line": 33,
+      "helper_failure_line": 19,
+      "observed": "spawnSync npm ENOENT; status null",
+      "diagnosis": "The no-shell spawnSync(\"npm\", ...) invocation cannot resolve npm as an executable on this host. Direct PowerShell npm pack succeeded."
+    },
+    {
+      "test": "ships Online Context Compact from the standalone source tree",
+      "path": "tests/package.test.ts",
+      "line": 41,
+      "helper_failure_line": 19,
+      "observed": "spawnSync npm ENOENT; status null",
+      "diagnosis": "Same no-shell npm subprocess launch failure; separate package-content inspection passed."
+    },
+    {
+      "test": "fails recall closed when an object path is replaced by a symlink",
+      "path": "tests/observation-pack.test.ts",
+      "line": 254,
+      "observed": "EPERM: operation not permitted, symlink",
+      "diagnosis": "This host prevented creation of the temporary file-symlink fixture before the intended guard assertion."
+    },
+    {
+      "test": "fails storage closed when the observation directory is a symlink",
+      "path": "tests/observation-pack.test.ts",
+      "line": 292,
+      "observed": "EPERM: operation not permitted, symlink",
+      "diagnosis": "This host prevented creation of the temporary directory-symlink fixture before the intended guard assertion."
+    },
+    {
+      "test": "uses the Luna reducer model and accepts only verified exact quotes",
+      "path": "tests/evidence-preserving-reducer.test.ts",
+      "line": 296,
+      "observed": "stat(sourcePath).mode & 0o777: received 438 (0666), expected 384 (0600)",
+      "diagnosis": "The POSIX-mode assertion is not satisfied by native Windows filesystem mode reporting. Windows ACL privacy was not established by this run."
+    }
+  ],
+  "scope": {
+    "verification": "Pinned, isolated source checkout with locked local development dependencies; source and installation instructions inspected before execution.",
+    "fixtures": "FakePi, injected reducer completions/auth fixtures, Pi faux provider for AgentSession lifecycle, mocked GitHub fetchers, temporary files; one real local Bash printf follow-up.",
+    "network": "npm dependency retrieval and automatic audit used the registry; test provider responses were fixtures. Network traffic was not instrumented.",
+    "live_provider_calls": false,
+    "real_provider_authentication": false,
+    "pi_cli_startup_or_registration": false,
+    "global_install": false,
+    "live_cost_latency_or_benchmark_replication": false,
+    "linux_rerun": false,
+    "workaround_patch": false,
+    "permissions_changed": false,
+    "limitation": "The upstream suite did not pass on this host. No installation-success or cross-platform-pass claim is made."
+  }
+}

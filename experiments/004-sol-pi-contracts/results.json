@@ -1,0 +1,442 @@
+{
+  "recordedDate": "2026-09-11",
+  "node": "v22.19.0",
+  "platform": "win32",
+  "sourceCommit": "d7ecfc089944f0d04b80122a0a9a6ca0d786f3d0",
+  "scope": "8 deterministic scenarios invoking the real upstream economics function; no native compaction, model, API pricing measurement, or benchmark",
+  "casesPassed": 8,
+  "results": [
+    {
+      "name": "first",
+      "input": {
+        "writeTokens": 80000,
+        "archiveTokens": 60000,
+        "memoTokens": 1000,
+        "contextTokens": 80000,
+        "completedBoundaryRequestCounts": [
+          4,
+          6,
+          5
+        ],
+        "remainingBoundaries": 4,
+        "averageContextTokenIncrement": 2000,
+        "contextWindowTokens": 200000,
+        "priorCompactionCount": 0,
+        "carriedDebtTokens": 0,
+        "cacheDebtRepaymentTokens": 0,
+        "cacheWriteReadRatio": 12.5,
+        "economics": {
+          "remainingRequestScale": 1,
+          "remainingRequestStddevK": 0,
+          "windowReserveTokens": 16384,
+          "firstCompactionRequestScale": 2,
+          "subsequentCompactionMargin": 1.5
+        }
+      },
+      "decision": {
+        "writeTokens": 80000,
+        "archiveTokens": 60000,
+        "memoTokens": 1000,
+        "contextTokens": 80000,
+        "completedBoundaryRequestCounts": [
+          4,
+          6,
+          5
+        ],
+        "requestsPerBoundaryMean": 5,
+        "requestsPerBoundaryLowerBound": 5,
+        "unboundedExpectedRemainingRequests": 21,
+        "averageContextTokenIncrement": 2000,
+        "windowRequestUpperBound": 60,
+        "expectedRemainingRequests": 21,
+        "breakevenRequests": 15.59322033898305,
+        "combinedBreakevenRequests": 15.59322033898305,
+        "effectiveHorizonRequests": 42,
+        "cacheWriteReadRatio": 12.5,
+        "incrementalCacheCostRatio": 11.5,
+        "priorCompactionCount": 0,
+        "carriedDebtTokens": 0,
+        "cacheDebtRepaymentTokens": 0,
+        "compact": true,
+        "reason": "economic"
+      }
+    },
+    {
+      "name": "later_margin",
+      "input": {
+        "writeTokens": 80000,
+        "archiveTokens": 60000,
+        "memoTokens": 1000,
+        "contextTokens": 80000,
+        "completedBoundaryRequestCounts": [
+          4,
+          6,
+          5
+        ],
+        "remainingBoundaries": 4,
+        "averageContextTokenIncrement": 2000,
+        "contextWindowTokens": 200000,
+        "priorCompactionCount": 1,
+        "carriedDebtTokens": 0,
+        "cacheDebtRepaymentTokens": 0,
+        "cacheWriteReadRatio": 12.5,
+        "economics": {
+          "remainingRequestScale": 1,
+          "remainingRequestStddevK": 0,
+          "windowReserveTokens": 16384,
+          "firstCompactionRequestScale": 2,
+          "subsequentCompactionMargin": 1.5
+        }
+      },
+      "decision": {
+        "writeTokens": 80000,
+        "archiveTokens": 60000,
+        "memoTokens": 1000,
+        "contextTokens": 80000,
+        "completedBoundaryRequestCounts": [
+          4,
+          6,
+          5
+        ],
+        "requestsPerBoundaryMean": 5,
+        "requestsPerBoundaryLowerBound": 5,
+        "unboundedExpectedRemainingRequests": 21,
+        "averageContextTokenIncrement": 2000,
+        "windowRequestUpperBound": 60,
+        "expectedRemainingRequests": 21,
+        "breakevenRequests": 15.59322033898305,
+        "combinedBreakevenRequests": 15.59322033898305,
+        "effectiveHorizonRequests": 21,
+        "cacheWriteReadRatio": 12.5,
+        "incrementalCacheCostRatio": 11.5,
+        "priorCompactionCount": 1,
+        "carriedDebtTokens": 0,
+        "cacheDebtRepaymentTokens": 0,
+        "compact": false,
+        "reason": "deferred_subsequent_margin"
+      }
+    },
+    {
+      "name": "later_longer_horizon",
+      "input": {
+        "writeTokens": 80000,
+        "archiveTokens": 60000,
+        "memoTokens": 1000,
+        "contextTokens": 80000,
+        "completedBoundaryRequestCounts": [
+          4,
+          6,
+          5
+        ],
+        "remainingBoundaries": 6,
+        "averageContextTokenIncrement": 2000,
+        "contextWindowTokens": 200000,
+        "priorCompactionCount": 1,
+        "carriedDebtTokens": 0,
+        "cacheDebtRepaymentTokens": 0,
+        "cacheWriteReadRatio": 12.5,
+        "economics": {
+          "remainingRequestScale": 1,
+          "remainingRequestStddevK": 0,
+          "windowReserveTokens": 16384,
+          "firstCompactionRequestScale": 2,
+          "subsequentCompactionMargin": 1.5
+        }
+      },
+      "decision": {
+        "writeTokens": 80000,
+        "archiveTokens": 60000,
+        "memoTokens": 1000,
+        "contextTokens": 80000,
+        "completedBoundaryRequestCounts": [
+          4,
+          6,
+          5
+        ],
+        "requestsPerBoundaryMean": 5,
+        "requestsPerBoundaryLowerBound": 5,
+        "unboundedExpectedRemainingRequests": 31,
+        "averageContextTokenIncrement": 2000,
+        "windowRequestUpperBound": 60,
+        "expectedRemainingRequests": 31,
+        "breakevenRequests": 15.59322033898305,
+        "combinedBreakevenRequests": 15.59322033898305,
+        "effectiveHorizonRequests": 31,
+        "cacheWriteReadRatio": 12.5,
+        "incrementalCacheCostRatio": 11.5,
+        "priorCompactionCount": 1,
+        "carriedDebtTokens": 0,
+        "cacheDebtRepaymentTokens": 0,
+        "compact": true,
+        "reason": "economic"
+      }
+    },
+    {
+      "name": "unpaid_debt",
+      "input": {
+        "writeTokens": 80000,
+        "archiveTokens": 60000,
+        "memoTokens": 1000,
+        "contextTokens": 80000,
+        "completedBoundaryRequestCounts": [
+          4,
+          6,
+          5
+        ],
+        "remainingBoundaries": 6,
+        "averageContextTokenIncrement": 2000,
+        "contextWindowTokens": 200000,
+        "priorCompactionCount": 1,
+        "carriedDebtTokens": 2000000,
+        "cacheDebtRepaymentTokens": 0,
+        "cacheWriteReadRatio": 12.5,
+        "economics": {
+          "remainingRequestScale": 1,
+          "remainingRequestStddevK": 0,
+          "windowReserveTokens": 16384,
+          "firstCompactionRequestScale": 2,
+          "subsequentCompactionMargin": 1.5
+        }
+      },
+      "decision": {
+        "writeTokens": 80000,
+        "archiveTokens": 60000,
+        "memoTokens": 1000,
+        "contextTokens": 80000,
+        "completedBoundaryRequestCounts": [
+          4,
+          6,
+          5
+        ],
+        "requestsPerBoundaryMean": 5,
+        "requestsPerBoundaryLowerBound": 5,
+        "unboundedExpectedRemainingRequests": 31,
+        "averageContextTokenIncrement": 2000,
+        "windowRequestUpperBound": 60,
+        "expectedRemainingRequests": 31,
+        "breakevenRequests": 15.59322033898305,
+        "combinedBreakevenRequests": 49.49152542372882,
+        "effectiveHorizonRequests": 31,
+        "cacheWriteReadRatio": 12.5,
+        "incrementalCacheCostRatio": 11.5,
+        "priorCompactionCount": 1,
+        "carriedDebtTokens": 2000000,
+        "cacheDebtRepaymentTokens": 0,
+        "compact": false,
+        "reason": "deferred_carried_debt"
+      }
+    },
+    {
+      "name": "window_pressure",
+      "input": {
+        "writeTokens": 190000,
+        "archiveTokens": 150000,
+        "memoTokens": 1000,
+        "contextTokens": 190000,
+        "completedBoundaryRequestCounts": [
+          4,
+          6,
+          5
+        ],
+        "remainingBoundaries": 4,
+        "averageContextTokenIncrement": 2000,
+        "contextWindowTokens": 200000,
+        "priorCompactionCount": 0,
+        "carriedDebtTokens": 0,
+        "cacheDebtRepaymentTokens": 0,
+        "cacheWriteReadRatio": 100,
+        "economics": {
+          "remainingRequestScale": 1,
+          "remainingRequestStddevK": 0,
+          "windowReserveTokens": 16384,
+          "firstCompactionRequestScale": 2,
+          "subsequentCompactionMargin": 1.5
+        }
+      },
+      "decision": {
+        "writeTokens": 190000,
+        "archiveTokens": 150000,
+        "memoTokens": 1000,
+        "contextTokens": 190000,
+        "completedBoundaryRequestCounts": [
+          4,
+          6,
+          5
+        ],
+        "requestsPerBoundaryMean": 5,
+        "requestsPerBoundaryLowerBound": 5,
+        "unboundedExpectedRemainingRequests": 21,
+        "averageContextTokenIncrement": 2000,
+        "windowRequestUpperBound": 5,
+        "expectedRemainingRequests": 5,
+        "breakevenRequests": 126.24161073825503,
+        "combinedBreakevenRequests": 126.24161073825503,
+        "effectiveHorizonRequests": 5,
+        "cacheWriteReadRatio": 100,
+        "incrementalCacheCostRatio": 99,
+        "priorCompactionCount": 0,
+        "carriedDebtTokens": 0,
+        "cacheDebtRepaymentTokens": 0,
+        "compact": true,
+        "reason": "window_protection"
+      }
+    },
+    {
+      "name": "no_saving",
+      "input": {
+        "writeTokens": 80000,
+        "archiveTokens": 1000,
+        "memoTokens": 1000,
+        "contextTokens": 80000,
+        "completedBoundaryRequestCounts": [
+          4,
+          6,
+          5
+        ],
+        "remainingBoundaries": 4,
+        "averageContextTokenIncrement": 2000,
+        "contextWindowTokens": 200000,
+        "priorCompactionCount": 0,
+        "carriedDebtTokens": 0,
+        "cacheDebtRepaymentTokens": 0,
+        "cacheWriteReadRatio": 12.5,
+        "economics": {
+          "remainingRequestScale": 1,
+          "remainingRequestStddevK": 0,
+          "windowReserveTokens": 16384,
+          "firstCompactionRequestScale": 2,
+          "subsequentCompactionMargin": 1.5
+        }
+      },
+      "decision": {
+        "writeTokens": 80000,
+        "archiveTokens": 1000,
+        "memoTokens": 1000,
+        "contextTokens": 80000,
+        "completedBoundaryRequestCounts": [
+          4,
+          6,
+          5
+        ],
+        "requestsPerBoundaryMean": 5,
+        "requestsPerBoundaryLowerBound": 5,
+        "unboundedExpectedRemainingRequests": 21,
+        "averageContextTokenIncrement": 2000,
+        "windowRequestUpperBound": 60,
+        "expectedRemainingRequests": 21,
+        "breakevenRequests": null,
+        "combinedBreakevenRequests": null,
+        "effectiveHorizonRequests": 42,
+        "cacheWriteReadRatio": 12.5,
+        "incrementalCacheCostRatio": 11.5,
+        "priorCompactionCount": 0,
+        "carriedDebtTokens": 0,
+        "cacheDebtRepaymentTokens": 0,
+        "compact": false,
+        "reason": "non_positive_saving"
+      }
+    },
+    {
+      "name": "no_history",
+      "input": {
+        "writeTokens": 80000,
+        "archiveTokens": 60000,
+        "memoTokens": 1000,
+        "contextTokens": 80000,
+        "completedBoundaryRequestCounts": null,
+        "remainingBoundaries": 4,
+        "averageContextTokenIncrement": 2000,
+        "contextWindowTokens": 200000,
+        "priorCompactionCount": 0,
+        "carriedDebtTokens": 0,
+        "cacheDebtRepaymentTokens": 0,
+        "cacheWriteReadRatio": 12.5,
+        "economics": {
+          "remainingRequestScale": 1,
+          "remainingRequestStddevK": 0,
+          "windowReserveTokens": 16384,
+          "firstCompactionRequestScale": 2,
+          "subsequentCompactionMargin": 1.5
+        }
+      },
+      "decision": {
+        "writeTokens": 80000,
+        "archiveTokens": 60000,
+        "memoTokens": 1000,
+        "contextTokens": 80000,
+        "completedBoundaryRequestCounts": null,
+        "requestsPerBoundaryMean": null,
+        "requestsPerBoundaryLowerBound": null,
+        "unboundedExpectedRemainingRequests": null,
+        "averageContextTokenIncrement": 2000,
+        "windowRequestUpperBound": null,
+        "expectedRemainingRequests": null,
+        "breakevenRequests": 15.59322033898305,
+        "combinedBreakevenRequests": 15.59322033898305,
+        "effectiveHorizonRequests": null,
+        "cacheWriteReadRatio": 12.5,
+        "incrementalCacheCostRatio": 11.5,
+        "priorCompactionCount": 0,
+        "carriedDebtTokens": 0,
+        "cacheDebtRepaymentTokens": 0,
+        "compact": false,
+        "reason": "horizon_unavailable"
+      }
+    },
+    {
+      "name": "no_price_ratio",
+      "input": {
+        "writeTokens": 80000,
+        "archiveTokens": 60000,
+        "memoTokens": 1000,
+        "contextTokens": 80000,
+        "completedBoundaryRequestCounts": [
+          4,
+          6,
+          5
+        ],
+        "remainingBoundaries": 4,
+        "averageContextTokenIncrement": 2000,
+        "contextWindowTokens": 200000,
+        "priorCompactionCount": 0,
+        "carriedDebtTokens": 0,
+        "cacheDebtRepaymentTokens": 0,
+        "cacheWriteReadRatio": null,
+        "economics": {
+          "remainingRequestScale": 1,
+          "remainingRequestStddevK": 0,
+          "windowReserveTokens": 16384,
+          "firstCompactionRequestScale": 2,
+          "subsequentCompactionMargin": 1.5
+        }
+      },
+      "decision": {
+        "writeTokens": 80000,
+        "archiveTokens": 60000,
+        "memoTokens": 1000,
+        "contextTokens": 80000,
+        "completedBoundaryRequestCounts": [
+          4,
+          6,
+          5
+        ],
+        "requestsPerBoundaryMean": 5,
+        "requestsPerBoundaryLowerBound": 5,
+        "unboundedExpectedRemainingRequests": 21,
+        "averageContextTokenIncrement": 2000,
+        "windowRequestUpperBound": 60,
+        "expectedRemainingRequests": 21,
+        "breakevenRequests": null,
+        "combinedBreakevenRequests": null,
+        "effectiveHorizonRequests": 42,
+        "cacheWriteReadRatio": null,
+        "incrementalCacheCostRatio": null,
+        "priorCompactionCount": 0,
+        "carriedDebtTokens": 0,
+        "cacheDebtRepaymentTokens": 0,
+        "compact": false,
+        "reason": "cache_ratio_unavailable"
+      }
+    }
+  ]
+}

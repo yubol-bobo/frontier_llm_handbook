@@ -10,7 +10,7 @@ const md=new MarkdownIt({html:true});
 
 test('all published English documents retain canonical identity, references, links and legacy fragments',()=>{
   assert.equal(zh.locale,'zh');assert.equal(en.locale,'en');
-  assert.deepEqual(Object.keys(en.docs),Object.keys(zh.docs));assert.equal(Object.keys(en.docs).length,54);
+  assert.deepEqual(Object.keys(en.docs),Object.keys(zh.docs));assert.equal(Object.keys(en.docs).length,57);
   assert.deepEqual(en.modules.map(m=>[m.id,m.file,m.anchor,m.prerequisites]),zh.modules.map(m=>[m.id,m.file,m.anchor,m.prerequisites]));
   assert.deepEqual(en.seminars.map(m=>[m.id,m.file,m.anchor]),zh.seminars.map(m=>[m.id,m.file,m.anchor]));
   assert.deepEqual(en.resources.map(r=>[r.id,r.commit,r.firstModule]),zh.resources.map(r=>[r.id,r.commit,r.firstModule]));

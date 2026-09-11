@@ -2,7 +2,7 @@
 
 # Frontier LLM knowledge tree
 
-Version: v0.4, 2026-09-08. Sources: 20 targeted source notes, three limited CPU experiments, and the source / primary-report synthesis in [the full large-model training process](handbook/00-end-to-end.md). Follow M00–M15 and F01–F06 in [ROADMAP](ROADMAP.md) for the course sequence; the branches below are organized by question, not learning order. See [COVERAGE](COVERAGE.md) for coverage depth and gaps.
+Version: v0.5, 2026-09-11. Sources: 21 targeted source notes, four limited CPU experiments, and the source / primary-report synthesis in [the full large-model training process](handbook/00-end-to-end.md). Follow M00–M15 and F01–F06 in [ROADMAP](ROADMAP.md) for the course sequence; the branches below are organized by question, not learning order. See [COVERAGE](COVERAGE.md) for coverage depth and gaps.
 
 <a id="新增的学习连接"></a>
 
@@ -43,7 +43,7 @@ Frontier LLMs: from tasks and data to learning and execution
 │   ├── Model requests, tool calls, steering, and stopping conditions
 │   ├── Context transforms, compaction, branching, recovery
 │   ├── Live events and durable session logs
-│   └── Projects: Pi, DeepSeek Harness, Claude Code / Agent SDK
+│   └── Projects: Pi, SoL-Pi, DeepSeek Harness, Claude Code / Agent SDK
 │
 ├── 2. How are tasks, environments, and feedback defined?
 │   ├── Responsibilities and ownership of Task / Harness / Runtime
@@ -180,3 +180,13 @@ New nodes must have a concrete question, source or experimental evidence, and li
 The [Claude Code case](handbook/05-claude-code-harness.md) extends the state questions in Pi/DeepSeek to SDK control protocols, permission callbacks, and long-running tasks. An execution log records what happened; context after compaction determines what the next step sees. Agent RL additionally needs actual sampled tokens, logprobs, masks, branches, and policy versions. A text session does not automatically constitute a trainable trajectory.
 
 The [CPU experiment](experiments/harness-state-machine/README.md) verifies no state mutation before a permission denial, loop budgets, and unknown execution outcomes. Next, compare summaries, notes, and subtask isolation under the same task, model, and budget using an independent verifier; these real-model experiments have not been executed.
+
+<a id="sol-pi效率证据和能力需要共同验收"></a>
+
+## SoL-Pi: evaluate efficiency, evidence, and capability together
+
+[SoL-Pi](handbook/06-sol-pi-efficient-harnesses.md) directly extends Pi. Action Fusion removes predictable model round trips; ObservationPack projects old large outputs into recallable references; Evidence-Preserving Reducer validates selected quotations; Online Context Compact weighs remaining requests, cache rebuilding, and window pressure. It optimizes execution; the public extension does not implement RL updates to model parameters.
+
+Compare context and lifecycle with [Claude Code](handbook/05-claude-code-harness.md) and DeepSeek Harness, cache economics with M09, budget-matched capability and cost with M14, and separately retain original tokens, logprobs, masks, and versions before integration with M13. Recallable references do not ensure the model will recall them, and authentic quotations do not ensure complete summaries.
+
+[Experiment 004](experiments/004-sol-pi-contracts/README.md) executed 8 scenarios against the actual upstream cost function. The next step is a baseline/single-switch ablation with an independent verifier; this handbook has not reproduced quality or cost gains.

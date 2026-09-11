@@ -87,6 +87,8 @@
 
 **Claude Code 进阶单元：** 在 Pi 初读之后进入 [完整讲解](../handbook/05-claude-code-harness.md) 和 [固定 SDK / 历史快照](../notes/repositories/claude-agent-sdk.md)，按执行循环 → 上下文 → 权限 → 恢复 → 评估学习。运行 [CPU 状态机实验](../experiments/harness-state-machine/README.md)，交付拒绝调用、预算耗尽和未知执行结果三种 trace，再讨论哪些字段必须进入 M13 的训练轨迹。
 
+**SoL-Pi 效率单元：** 在 Pi 的事件/工具初读之后进入 [专题](../handbook/06-sol-pi-efficient-harnesses.md) 和 [源码笔记](../notes/repositories/sol-pi.md)，按 Action Fusion → ObservationPack → Evidence-Preserving Reducer → Online Context Compact 阅读，再运行 [实验 004](../experiments/004-sol-pi-contracts/README.md)。先理解保存证据和拒绝异常替换，再手算缓存成本，最后在 M14 设计质量/成本配对实验。
+
 <a id="m13"></a>
 
 ## M13｜异步 agent RL 与一致性：吞吐增长不能掩盖训练语义变化

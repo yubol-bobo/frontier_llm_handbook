@@ -26,6 +26,7 @@ All sources are shallow clones retaining the current working tree; they do not i
 | DeepGEMM | [sources/deepgemm](https://github.com/deepseek-ai/DeepGEMM/tree/559d79fb6994a58b8a15b4b93bf13ccc16edf247) | [559d79fb6994](https://github.com/deepseek-ai/DeepGEMM/tree/559d79fb6994a58b8a15b4b93bf13ccc16edf247) | 138 | 2 | 0 |
 | DeepEP | [sources/deepep](https://github.com/deepseek-ai/DeepEP/tree/01dc3aaac82068020353dce2c302e38153c0bfaa) | [01dc3aaac820](https://github.com/deepseek-ai/DeepEP/tree/01dc3aaac82068020353dce2c302e38153c0bfaa) | 108 | 1 | 0 |
 | Claude Code / Agent SDK | [sources/claude-agent-sdk](https://github.com/anthropics/claude-agent-sdk-python/tree/f1315c69a74db1c15fed2e5974918495d90b7d57) | [f1315c69a74d](https://github.com/anthropics/claude-agent-sdk-python/tree/f1315c69a74db1c15fed2e5974918495d90b7d57) | 144 | 0 | 0 |
+| SoL-Pi | [sources/sol-pi](https://github.com/NVlabs/SoL-Pi/tree/d7ecfc089944f0d04b80122a0a9a6ca0d786f3d0) | [d7ecfc089944](https://github.com/NVlabs/SoL-Pi/tree/d7ecfc089944f0d04b80122a0a9a6ca0d786f3d0) | 64 | 0 | 0 |
 
 <a id="使用说明"></a>
 

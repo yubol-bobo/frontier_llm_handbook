@@ -2,7 +2,7 @@
 
 # Frontier LLM repository study index
 
-Updated: 2026-09-08. All 20 projects have been cloned; initial reading notes refer to the versions in [sources.lock.json](https://github.com/yubol-bobo/frontier_llm_handbook/blob/main/sources.lock.json).
+Updated: 2026-09-11. All 21 projects have been cloned; initial reading notes refer to the versions in [sources.lock.json](https://github.com/yubol-bobo/frontier_llm_handbook/blob/main/sources.lock.json).
 
 The default learning sequence is now unified in [ROADMAP.md](ROADMAP.md): from prerequisites, models, and gradients through data, pretraining, and systems, then into post-training and agent RL. Detailed modules are in the [curriculum](curriculum/01-foundations-to-pretraining.md); resource purposes are in [RESOURCE_ATLAS](RESOURCE_ATLAS.md). The table below retains stable registration numbers for locating older notes; the numbers do not indicate learning order.
 
@@ -22,7 +22,7 @@ Levels apply to the recorded study scope, not mastery of the entire repository. 
 
 ## Complete index
 
-The table below is the original registration index; each note contains pinned-version links and specific file entry points. New readers should access this material through M00–M15 in ROADMAP and need not read all 20 repositories in order.
+The table below is the original registration index; each note contains pinned-version links and specific file entry points. New readers should access this material through M00–M15 in ROADMAP and need not read all 21 repositories in order.
 
 | Registration number | Project / notes | Core question | Next hands-on artifact |
 |---:|---|---|---|
@@ -46,6 +46,7 @@ The table below is the original registration index; each note contains pinned-ve
 | 18 | [DeepGEMM](notes/repositories/deepgemm.md) | How do low precision, grouped GEMM, and JIT determine kernel efficiency? | Run a shape/numerical-error/throughput sweep on a supported GPU |
 | 19 | [DeepEP](notes/repositories/deepep.md) | How are MoE tokens dispatched and combined across GPUs? | Analyze dispatch/combine shapes, correctness, and communication time |
 | 20 | [Claude Code / Agent SDK](notes/repositories/claude-agent-sdk.md) | How does a complex harness manage context, permissions, and recovery? | A pinned SDK call chain, snapshot evidence boundaries, and CPU failure traces |
+| 21 | [SoL-Pi](notes/repositories/sol-pi.md) | How do correctness, evidence, and cache cost constrain harness efficiency? | Compare four mechanisms, run 8 actual cost-function scenarios, and design independent paired evaluations |
 
 <a id="怎样把索引变成学习产物"></a>
 

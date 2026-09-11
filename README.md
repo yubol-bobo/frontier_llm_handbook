@@ -4,7 +4,7 @@
 
 面向希望进入这一领域的初学者，以及希望深化训练与系统能力的工程师、研究者，尤其是没有机会进入 frontier lab 的学习者。以公开的一手论文、源码、训练配方和运行记录为依据，将数据、模型设计、预训练、后训练、推理与评估连接成有先修、有练习、有验收的中英双语学习路线。
 
-创建日期：2026-09-08。课程 v0.1：**16 个核心模块、6 个前沿专题、20 个固定源码仓库**，配合外部一级资源、五篇全流程讲解和可运行首课。课程设计、实际源码审读和已执行实验分别标记；完整覆盖地图与待补内容公开维护。
+创建日期：2026-09-08。课程 v0.1：**16 个核心模块、6 个前沿专题、21 个固定源码仓库**，配合外部一级资源、五篇全流程讲解和可运行首课。课程设计、实际源码审读和已执行实验分别标记；完整覆盖地图与待补内容公开维护。
 
 主仓库：[yubol-bobo/frontier_llm_handbook](https://github.com/yubol-bobo/frontier_llm_handbook)，主分支：`main`。后续学习笔记、实验与知识树在这里持续积累；本地工作目录目前保留名称 `frontier-llm-lab`。
 
@@ -28,7 +28,7 @@
 | [知识覆盖与缺口](COVERAGE.md) | 区分课程设计、教材讲解、源码审读、实测与尚未公开的材料 |
 | [首课：一个 token 到一次更新](lessons/01-one-token-to-update.md) | 用普通电脑理解概率、loss、梯度、mask 与分片归一化 |
 | [超大 LLM 从零训练全流程](handbook/00-end-to-end.md) | 从目标、数据与 scaling pilots，到分布式预训练、agent RL 和发布；含四篇详章 |
-| [仓库学习索引](LEARNING_LIST.md) | 20 个固定项目的登记编号与源码笔记；编号不代表先修顺序 |
+| [仓库学习索引](LEARNING_LIST.md) | 21 个固定项目的登记编号与源码笔记；编号不代表先修顺序 |
 | [知识树](KNOWLEDGE_TREE.md) | 按知识组织项目：从任务与数据到训练、调度、GPU 内核 |
 | [仓库关系图](REPO_RELATIONSHIPS.md) | 区分真实依赖、可选后端、示例集成、项目谱系和概念对应 |
 | [内容建设与维护者进度](PROGRESS.md) | 本仓库实际完成了什么；读者另用学习记录模板 |
@@ -52,8 +52,8 @@
 
 ## 当前成果
 
-- 20/20 仓库已克隆，全部记录来源和固定 SHA。
-- 20 份项目初读笔记：每份至少追踪一条具体代码/配置路径；它们不是全仓库审计或“已经学完”。
+- 21/21 仓库已克隆，全部记录来源和固定 SHA。
+- 21 份项目初读笔记：每份至少追踪一条具体代码/配置路径；它们不是全仓库审计或“已经学完”。
 - Pi 的低层 agent loop、Harbor Cookbook 的局部任务/评分接口已经进一步展开。
 - 已执行 [实验 001：Harbor 多维奖励](experiments/001-harbor-reward-contract/README.md) 与 [实验 002：token loss 与梯度归一化](experiments/002-token-weighted-loss/README.md)，均为局部 CPU 实验；没有运行完整 agent RL 或大模型训练。
 - 新增五篇 [训练全流程手册](handbook/00-end-to-end.md)，结合固定源码与当前一手报告，另以 [Marin 535B 进行中的训练](handbook/04-marin-535b-live-case-study.md) 追踪真实决策。源码、作者报告、工程综合与未验证事项分别标注。
@@ -77,7 +77,7 @@ frontier-llm-lab/
 ├── PROGRESS.md                   阶段状态和续学入口
 ├── HOW_TO_STUDY.md               持续学习流程
 ├── GLOSSARY.md                   术语与接口语义
-├── repos.json                   20 个源码仓库注册表
+├── repos.json                   21 个源码仓库注册表
 ├── sources.lock.json            本次学习的源码快照记录
 ├── SOURCE_INDEX.md              可点击的源码索引
 ├── handbook/                    全流程、三篇机制详章与 Marin 535B 案例
@@ -90,7 +90,7 @@ frontier-llm-lab/
 └── tools/                       克隆、快照与完整性检查工具
 ```
 
-源码使用 depth=1 的浅克隆，当前工作树可读，未获取完整 Git 历史、submodule 内容、LFS 大文件、模型权重或训练数据。GitHub 主仓库保存学习资料、实验和源码版本清单；`sources/` 下的 20 个独立 upstream checkouts 不重复打包上传，可通过下面的命令恢复。笔记中的本地源码链接需要先恢复 `sources/`；固定 SHA 的 GitHub 链接可以直接在线阅读。
+源码使用 depth=1 的浅克隆，当前工作树可读，未获取完整 Git 历史、submodule 内容、LFS 大文件、模型权重或训练数据。GitHub 主仓库保存学习资料、实验和源码版本清单；`sources/` 下的 21 个独立 upstream checkouts 不重复打包上传，可通过下面的命令恢复。笔记中的本地源码链接需要先恢复 `sources/`；固定 SHA 的 GitHub 链接可以直接在线阅读。
 
 ## 在另一台电脑恢复
 
@@ -122,3 +122,7 @@ python experiments/001-harbor-reward-contract/run.py
 ## Claude Code harness 学习入口
 
 从 [M12 进阶讲解](handbook/05-claude-code-harness.md) 开始：Pi → Claude Code 的执行循环、上下文、权限与恢复 → Harbor/APEX 的轨迹与评估。配套 [固定源码与历史快照笔记](notes/repositories/claude-agent-sdk.md) 和 [CPU 状态机实验](experiments/harness-state-machine/README.md)。官方 SDK 为新增的第 20 个独立源码项目；历史镜像有单独的来源核验边界。实验使用自有 mock provider，不调用 Claude，也不代表复现其内部实现。
+
+## SoL-Pi：学习可验证的 harness 提效
+
+新增 [SoL-Pi 专题](handbook/06-sol-pi-efficient-harnesses.md) 与 [固定源码笔记](notes/repositories/sol-pi.md)：沿 Pi → 四种效率机制 → M09 缓存成本 → M14 配对评测学习。[CPU 实验与上游验证记录](experiments/004-sol-pi-contracts/README.md) 区分真实成本函数测试、Windows 平台限制和未执行的模型评测。

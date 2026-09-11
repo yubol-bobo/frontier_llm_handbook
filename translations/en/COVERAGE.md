@@ -36,7 +36,7 @@ Updated: 2026-09-08. The goal is to present a complete map of end-to-end frontie
 | Serving, KV, prefill/decode, batching | M09 | Curriculum, explanation, source | End-to-end latency/throughput under a controlled workload |
 | SFT, preferences, reward models | M10 | Curriculum, explanation, source | Full-parameter baseline on small data; LoRA/QLoRA as separate optional reading |
 | RL objectives, advantages, KL, sampling, synchronous updates | M11 | Curriculum, explanation, source | One traceable loop with an actual small model |
-| Harnesses, tools, state, compaction, recovery | M12 | Curriculum, Pi/DeepSeek/Claude Code comparison, SDK and historical snapshot, CPU state-machine experiment | Real SDK, process recovery, and model evaluation |
+| Harnesses, tools, state, compaction, recovery | M12 | Pi/SoL-Pi/DeepSeek/Claude Code comparison, CPU state-machine and cost-function experiments | Real-model efficiency, cross-version integration, and end-to-end failure recovery |
 | Sandboxes, tasks, verifiers, reward aggregation | M12/M14 | Curriculum, source, CPU reward Experiment 001 | Actual Trial lifecycle and scoring isolation |
 | Asynchronous RL, policy versions, TITO, routing replay | M13 | Curriculum, explanation, source | Queue simulation → comparison of actual training/inference versions |
 | Independent evaluation, judges, costs, errors, safety regressions | M03/M14 | Curriculum, explanation; lm-eval/Inspect entry points | Local evaluation suite, scorer audit, and repeated sampling |

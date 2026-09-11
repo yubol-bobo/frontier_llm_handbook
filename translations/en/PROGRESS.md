@@ -2,7 +2,7 @@
 
 # Content development and maintainer study progress
 
-Updated: 2026-09-08. The project is in its first round of study and has not completed the entire field or reproduced any complete large-model training run.
+Updated: 2026-09-11. The project is in its first round of study and has not completed the entire field or reproduced any complete large-model training run.
 
 This page records the maintainer's actual work. Readers enter the course through [ROADMAP](ROADMAP.md) and use the [personal learning template](templates/learner-progress.md); completing curriculum design does not mean an individual has completed the course. See [COVERAGE](COVERAGE.md) for the maturity of knowledge coverage.
 
@@ -17,14 +17,14 @@ Main repository: [yubol-bobo/frontier_llm_handbook](https://github.com/yubol-bob
 | Item | Completed | Not completed |
 |---|---|---|
 | Learning repository | Local Git, main GitHub repository, study index, methods, and templates | Continue updating this main repository as study progresses |
-| Interactive website | Chinese–English interface and 54 documents, terminology table, light/dark themes, course cards, reading tracking, dynamic knowledge connections, interactive mathematics experiments, local notes and backups, GitHub Pages deployment | More instructional units, actual model experiments, and learner feedback |
-| Source acquisition | 20/20 shallow clones, pinned SHAs, source index | Full history, submodules, large LFS files, weights, and data have not been downloaded |
-| Source reading | Initial reading of at least one implementation/configuration path for 20/20 projects | Whole-repository reading and runtime validation |
-| Cross-project relationships | 5 connection topics, relationship index, conceptual knowledge tree v0.4 | Actual installation compatibility for dependency combinations |
+| Interactive website | Chinese–English interface and 57 documents, terminology table, light/dark themes, course cards, reading tracking, dynamic knowledge connections, interactive mathematics experiments, local notes and backups, GitHub Pages deployment | More instructional units, actual model experiments, and learner feedback |
+| Source acquisition | 21/21 shallow clones, pinned SHAs, source index | Full history, submodules, large LFS files, weights, and data have not been downloaded |
+| Source reading | Initial reading of at least one implementation/configuration path for 21/21 projects | Whole-repository reading and runtime validation |
+| Cross-project relationships | 5 connection topics, relationship index, conceptual knowledge tree v0.5 | Actual installation compatibility for dependency combinations |
 | Full-process research | Overview + detailed chapters on data design, distributed operations, and post-training + Marin 535B case study | Complete training execution, independent reproduction of authors' results, and closed-source recipes |
 | Public curriculum | 16 core modules M00–M15, 32 exercise designs, F01–F06 seminar designs | More complete lessons, exercise answers, and actual execution for each module |
 | Introductory teaching | First lesson: probability, manually implemented gradients, masks, global token averaging | Instructional experiments for automatic differentiation and a complete decoder |
-| Experiments | 3 local CPU experiments, with scripts and results saved | Model APIs, Docker, GPUs, complete RL training |
+| Experiments | 4 local CPU experiments, with scripts and results saved | Model APIs, Docker, GPUs, complete RL training |
 
 <a id="逐仓库进度"></a>
 
@@ -54,6 +54,7 @@ Main repository: [yubol-bobo/frontier_llm_handbook](https://github.com/yubol-bob
 | 18 | [DeepGEMM](notes/repositories/deepgemm.md) | L1: JIT, layouts, Mega MoE benchmark | Kernel experiment on supported hardware pending |
 | 19 | [DeepEP](notes/repositories/deepep.md) | L1: V2 Buffer, dispatch/combine, streams | Multi-GPU communication experiment pending |
 | 20 | [Claude Code / Agent SDK](notes/repositories/claude-agent-sdk.md) | L1: CLI transport, permission callbacks, input-stream lifecycle; targeted external historical snapshot reading | Original CPU state machine executed; real Claude, SDK integration, and recovery remain untested |
+| 21 | [SoL-Pi](notes/repositories/sol-pi.md) | Targeted L2: four mechanisms, cache cost, Pi version, and failure boundaries | 8 upstream cost-function scenarios pass; Windows upstream tests pass 134/139, with 5 failures retained in the record |
 
 <a id="下一次从这里继续"></a>
 
@@ -82,6 +83,7 @@ The first lesson, [from one token to one update](lessons/01-one-token-to-update.
 
 - Prime RL pins a Verifiers submodule; the independent HEAD differs, so align dependencies before actual training.
 - The npm release used by the Verifiers Pi adapter differs from the independent Pi HEAD.
+- SoL-Pi locks Pi 0.84.2 for development; the independent Pi 0.85.1 snapshot has not been verified as a compatible pairing.
 - Open Instruct pins an OLMo-core commit and has 4 undownloaded LFS test-data files.
 - Cookbook harbor_rl uses a Harbor feature branch; main lacks the module of that name.
 - APEX requires unpublished original training data and a specified SkyRL checkout; the material for a complete reproduction of the original recipe is not currently available.
@@ -93,6 +95,7 @@ These do not prevent continued code reading or independent CPU experiments; they
 
 ## Saved study records
 
+- [SoL-Pi: four mechanisms, cache costs, and partial verification](https://github.com/yubol-bobo/frontier_llm_handbook/blob/main/notes/sessions/2026-09-11-sol-pi.md)
 - [Claude Code harness: source, historical snapshot, and CPU state machine](https://github.com/yubol-bobo/frontier_llm_handbook/blob/main/notes/sessions/2026-09-08-claude-code-harness.md)
 - [Bilingual website and terminology review](https://github.com/yubol-bobo/frontier_llm_handbook/blob/main/notes/sessions/2026-09-08-bilingual-website.md)
 - [Website visual and interaction upgrade](https://github.com/yubol-bobo/frontier_llm_handbook/blob/main/notes/sessions/2026-09-08-website-redesign.md)

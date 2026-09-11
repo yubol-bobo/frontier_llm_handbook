@@ -95,6 +95,8 @@ Read the three groups of core material in each section in order; optional readin
 
 **Claude Code advanced unit:** After the initial Pi reading, study the [complete guide](../handbook/05-claude-code-harness.md) and [pinned SDK / historical snapshot](../notes/repositories/claude-agent-sdk.md) in the order execution loop → context → permissions → recovery → evaluation. Run the [CPU state-machine experiment](../experiments/harness-state-machine/README.md), deliver traces for denied calls, exhausted budgets, and unknown execution outcomes, then identify the fields required by M13 training trajectories.
 
+**SoL-Pi efficiency unit:** After the initial Pi events/tools reading, use the [guide](../handbook/06-sol-pi-efficient-harnesses.md) and [source note](../notes/repositories/sol-pi.md) in the order Action Fusion → ObservationPack → Evidence-Preserving Reducer → Online Context Compact, then run [Experiment 004](../experiments/004-sol-pi-contracts/README.md). Understand evidence retention and rejection of invalid replacements, calculate cache costs, and design paired quality/cost evaluation in M14.
+
 <a id="m13"></a>
 
 <a id="m13异步-agent-rl-与一致性吞吐增长不能掩盖训练语义变化"></a>

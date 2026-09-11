@@ -13,6 +13,7 @@ export const stages = [
 ];
 
 export const connections = [
+  { id:'efficiency', title:'Harness 提效，要同时核对证据、能力和缓存成本', modules:['M09','M12','M14'], text:'SoL-Pi 将工具动作、输出归档、日志精简与上下文压缩连接起来。减少 token 重放并不自动保证费用更低、证据完整或任务成功。', evidence:'8 个真实上游成本函数场景已通过；Windows 上游测试的 5 项失败单列，模型质量与费用收益未复现。', source:'handbook/06-sol-pi-efficient-harnesses.md' },
   { id:'loss', title:'同一个 loss 分母，贯穿数据、分布式与 RL', modules:['M02','M03','M05','M11','M13'], text:'Packing 和 mask 改变有效 token 数。各分片有效长度不同时，直接平均局部均值会改变全局 token 目标；RL 轨迹也需要明确加权单位。', evidence:'分组加权反例已有 CPU 实验；真实分布式与 RL 运行尚待验证。', source:'notes/connections/end-to-end.md', lab:true },
   { id:'data', title:'数据身份，决定实验能否解释', modules:['M03','M04','M08'], text:'数据来源、tokenizer、处理版本、packing 和实际混合比例需要跟随运行保存，才能判断改进来自配方、预算还是数据改变。', evidence:'公开配方与数据产物契约的综合对应。', source:'handbook/01-data-model-pretraining-design.md' },
   { id:'recovery', title:'张量放在哪里，决定怎样恢复训练', modules:['M05','M08','M09'], text:'并行布局决定参数与优化器状态的所有权。恢复还需要训练配置要求的 master 权重、随机状态、数据位置与完整提交条件。', evidence:'固定源码与公开案例综合，未验证不同拓扑恢复逐位一致。', source:'handbook/02-distributed-pretraining-operations.md' },

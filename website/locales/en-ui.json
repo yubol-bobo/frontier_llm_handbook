@@ -279,5 +279,6 @@
   "自主验收需要保留证据说明。": "Self-assessed completion requires recorded evidence.",
   "前沿 LLM 端到端训练知识与工程能力：从数据、预训练到分布式系统、后训练与 Agent RL。按顺序学习一手资料，通过交互实验理解原理。": "Frontier LLM training knowledge and engineering skills: data, pretraining, distributed systems, post-training, and agent RL. Learn from primary sources and interactive experiments.",
   " 个固定源码项目": " repositories pinned to commits",
-  "Claude Code：执行循环、上下文与恢复": "Claude Code: agent loop, context, and recovery"
+  "Claude Code：执行循环、上下文与恢复": "Claude Code: agent loop, context, and recovery",
+  "SoL-Pi：可验证的 Harness 提效": "SoL-Pi: verifiable harness efficiency"
 }

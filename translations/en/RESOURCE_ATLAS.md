@@ -2,15 +2,17 @@
 
 # Resource atlas: when to read, why to read, and where to stop
 
-Verified: 2026-09-08. See [ROADMAP](ROADMAP.md) for the curriculum sequence. Resources here are organized by learning purpose, not popularity or stars. On the first pass, choose only the core material for each module and consult the rest as specific questions arise.
+Existing entries checked: 2026-09-08; SoL-Pi added and checked: 2026-09-11. See [ROADMAP](ROADMAP.md) for the curriculum sequence. Resources here are organized by learning purpose, not popularity or stars. On the first pass, choose only the core material for each module and consult the rest as specific questions arise.
 
-**Status definitions:** “Pinned source” means cloned, with a recorded SHA and targeted notes; it does not mean the full project has been run. “External entry point” means the official page and learning purpose were checked in this round, but the resource is not among the 20 source snapshots, has not been installed, and its assignments have not been completed. Paper conclusions apply within their experimental conditions; model reports, inference demos, and complete training recipes are identified separately.
+**Status definitions:** “Pinned source” means cloned, with a recorded SHA and targeted notes; it does not mean the full project has been run. “External entry point” means the official page and learning purpose were checked in this round, but the resource is not among the 21 source snapshots, has not been installed, and its assignments have not been completed. Paper conclusions apply within their experimental conditions; model reports, inference demos, and complete training recipes are identified separately.
 
 <a id="1-主干19-个固定源码项目"></a>
 
 <a id="1-主干20-个固定源码项目"></a>
 
-## 1. Backbone: 20 pinned source projects
+<a id="1-主干21-个固定源码项目"></a>
+
+## 1. Backbone: 21 pinned source projects
 
 | Project / pinned-source notes | First encounter | Most useful question to read with | First-pass stopping point |
 |---|---|---|---|
@@ -28,6 +30,7 @@ Verified: 2026-09-08. See [ROADMAP](ROADMAP.md) for the curriculum sequence. Res
 | [Harbor](notes/repositories/harbor.md) | M12, M14 | How do environment, agent, and verifier lifecycles end reliably? | Explain normal, timeout, and failure branches |
 | [Verifiers](notes/repositories/verifiers.md) | M12 | Who owns state: task, harness, runtime, or rollout? | Trace one rollout through scoring and artifacts |
 | [Pi](notes/repositories/pi.md) | M12 | How do events, tools, context, and durable sessions connect? | Trace one controlled tool call and cancellation/recovery questions |
+| [SoL-Pi](notes/repositories/sol-pi.md) | M12, after Pi; revisit M09/M14 | How can fewer calls and less context replay retain evidence, control cost, and support independent evaluation? | Trace four mechanisms, calculate compaction break-even, and check failure and evaluation boundaries |
 | [Claude Code / Agent SDK](notes/repositories/claude-agent-sdk.md) | M12, after Pi | How do SDK control protocols, historical harness snapshots, and current behavior differ? | Trace permission callbacks, explain compaction and recovery, and pass the CPU state-machine experiment |
 | [DeepSeek Harness](notes/repositories/deepseek-harness.md) | M12 | How is a log projected into a model request? | Identify the invariants that context and logs must satisfy |
 | [Prime RL](notes/repositories/prime-rl.md) | M11 overview, M13 in depth | How do task generation, grouping, filtering, queues, and training connect? | Follow one sample's reward/tokens/version to the learner |

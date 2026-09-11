@@ -1,6 +1,6 @@
 # 内容建设与维护者学习进度
 
-更新：2026-09-08。项目处于第一轮学习，尚未完成整个领域或任何完整大模型训练复现。
+更新：2026-09-11。项目处于第一轮学习，尚未完成整个领域或任何完整大模型训练复现。
 
 本页记录维护者实际工作。读者从 [ROADMAP](ROADMAP.md) 进入课程，并使用 [个人学习模板](templates/learner-progress.md)；课程设计完成不表示个人结业。知识覆盖成熟度见 [COVERAGE](COVERAGE.md)。
 
@@ -13,14 +13,14 @@
 | 项目 | 已完成 | 未完成 |
 |---|---|---|
 | 学习仓库 | 本地 Git、GitHub 主仓库、学习清单、方法与模板 | 后续学习持续更新此主仓库 |
-| 交互网站 | 中英双语界面与 54 篇资料、术语对照、深浅主题、课程卡片、阅读跟踪、动态知识关联、数学互动实验、本地笔记与备份，GitHub Pages 发布 | 更多教学单元、真实模型实验与学习者反馈 |
-| 源码获取 | 20/20 shallow clones，固定 SHA，源码索引 | 完整历史、submodules、LFS 大文件、权重与数据未下载 |
-| 源码阅读 | 20/20 项目完成至少一条实现/配置链路初读 | 全仓库阅读与运行验证 |
-| 跨项目关系 | 5 份连接专题、关系总表、概念知识树 v0.4 | 各依赖组合的实际安装兼容性 |
+| 交互网站 | 中英双语界面与 57 篇资料、术语对照、深浅主题、课程卡片、阅读跟踪、动态知识关联、数学互动实验、本地笔记与备份，GitHub Pages 发布 | 更多教学单元、真实模型实验与学习者反馈 |
+| 源码获取 | 21/21 shallow clones，固定 SHA，源码索引 | 完整历史、submodules、LFS 大文件、权重与数据未下载 |
+| 源码阅读 | 21/21 项目完成至少一条实现/配置链路初读 | 全仓库阅读与运行验证 |
+| 跨项目关系 | 5 份连接专题、关系总表、概念知识树 v0.5 | 各依赖组合的实际安装兼容性 |
 | 全流程研究 | 总章 + 数据设计、分布式运行、后训练详章 + Marin 535B 案例 | 完整训练执行、独立复现作者成绩与闭源配方 |
 | 公开课程 | M00–M15 共 16 核心模块、32 项练习设计，F01–F06 研读设计 | 各模块更多完整 lesson、习题答案和实际执行 |
 | 入门教学 | 首课：概率、手写梯度、mask、全局 token 平均 | 自动微分与完整 decoder 的教学实验 |
-| 实验 | 3 个本地 CPU 实验，脚本与结果保存 | 模型 API、Docker、GPU、完整 RL 训练 |
+| 实验 | 4 个本地 CPU 实验，脚本与结果保存 | 模型 API、Docker、GPU、完整 RL 训练 |
 
 ## 逐仓库进度
 
@@ -48,6 +48,7 @@
 | 18 | [DeepGEMM](notes/repositories/deepgemm.md) | L1：JIT、布局、Mega MoE benchmark | 支持硬件上的内核实验待执行 |
 | 19 | [DeepEP](notes/repositories/deepep.md) | L1：V2 Buffer、dispatch/combine、stream | 多 GPU 通信实验待执行 |
 | 20 | [Claude Code / Agent SDK](notes/repositories/claude-agent-sdk.md) | L1：CLI transport、权限回调、输入流生命周期；外部历史快照局部审读 | 自有 CPU 状态机已执行；真实 Claude、SDK 集成与故障恢复待测 |
+| 21 | [SoL-Pi](notes/repositories/sol-pi.md) | L2 局部：四机制、缓存成本、Pi 版本与失败边界 | 8 个上游成本函数场景通过；Windows 上游测试 134/139 通过，5 项失败保留记录 |
 
 ## 下一次从这里继续
 
@@ -72,6 +73,7 @@
 
 - Prime RL 锁定 Verifiers submodule；独立 HEAD 不同，实际训练前对齐依赖。
 - Verifiers Pi adapter 的 npm release 与独立 Pi HEAD 不同。
+- SoL-Pi 的开发锁定 Pi 0.84.2；独立 Pi 快照 0.85.1 尚未作为组合验证。
 - Open Instruct 固定 OLMo-core commit，且有 4 个未下载的 LFS 测试数据文件。
 - Cookbook harbor_rl 使用 Harbor feature branch；main 没有同名模块。
 - APEX 需要未公开原始训练数据与指定 SkyRL checkout；完整原配方复现暂不具备材料。
@@ -81,6 +83,7 @@
 
 ## 已保存的学习记录
 
+- [SoL-Pi：四机制、缓存成本与局部验证](notes/sessions/2026-09-11-sol-pi.md)
 - [Claude Code harness：源码、历史快照与 CPU 状态机](notes/sessions/2026-09-08-claude-code-harness.md)
 - [中英双语网站与术语校核](notes/sessions/2026-09-08-bilingual-website.md)
 - [网站视觉与交互升级](notes/sessions/2026-09-08-website-redesign.md)

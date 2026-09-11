@@ -12,6 +12,7 @@ Added [the full training process](handbook/00-end-to-end.md) and [cross-layer ar
 
 ```mermaid
 flowchart LR
+  SoLPi[SoL-Pi] -->|public extension APIs| Pi
   Cookbook[Harbor Cookbook] -->|Task framework| Harbor[Harbor]
   Cookbook -.->|Documentation pointer| SkyRL[SkyRL external]
   APEX[APEX recipe] -->|Trial dependency| Harbor
@@ -44,6 +45,7 @@ Each row links to an evidence note containing pinned source paths and line numbe
 | Prime RL | Verifiers | Direct dependency, git submodule, Episode/Trace interfaces | [RL connections](notes/connections/rl.md) |
 | Prime RL | TorchTitan | Linux dependency, reuses components such as gradient clipping; does not imply use of the entire Titan trainer | [RL connections](notes/connections/rl.md) |
 | Verifiers | Pi | Optional harness adapter using an npm release + ACP/provider | [Verifiers](notes/repositories/verifiers.md) |
+| SoL-Pi | Pi | Direct public extension APIs; development pins 0.84.2, while the independent Pi snapshot 0.85.1 is not a tested combination | [SoL-Pi](notes/repositories/sol-pi.md) |
 | Verifiers | Harbor | Optional taskset adapter using the CLI and Python task model | [Verifiers](notes/repositories/verifiers.md) |
 | Harbor Cookbook | Harbor | Direct task-framework dependency; certain training scripts point to a separate feature branch | [Harness connections](notes/connections/harness.md) |
 | Harbor Cookbook | SkyRL | Documentation pointer; complete integration code is in an external repository | [Cookbook](notes/repositories/harbor-cookbook.md) |
@@ -90,6 +92,7 @@ Evidence and discussion: [training topic](notes/connections/training.md), [RL to
 |---|---|---|
 | Prime RL | `deps/verifiers` gitlink is `828488fffe31aa3332b9d1bd4bd9ee320e375cf1` | Independent Verifiers HEAD is `27bbd216df0af719a43705866b2cf6139bcc95de`; submodule contents are not initialized |
 | Verifiers Pi adapter | npm Pi coding-agent `0.84.1` | Package version in the independent Pi clone is `0.85.1`; this is not a tested combination |
+| SoL-Pi | Development dependencies use Pi `0.84.2`; runtime packages are peer dependencies | The independent Pi clone is `0.85.1`; a wildcard peer range does not prove compatibility |
 | Open Instruct | OLMo-core pin `fa6c5014c9f6e9ee789da2d9c20d5126fee8df0d` | Independent OLMo-core HEAD differs from that pin |
 | APEX recipe | Harbor `0.21.0`, a SkyRL 0.3.0 checkout path on the authors' machine | Independent Harbor HEAD and arbitrary SkyRL main cannot directly replace them; training data is unpublished |
 | Cookbook harbor_rl | Harbor `feature/harbor-rl-4d0` | Current independent Harbor main lacks the `harbor.rl` imported by this example |
@@ -102,7 +105,7 @@ Compatibility findings in this round come from source code and configuration, no
 
 ## Out-of-scope nodes
 
-SkyRL, vLLM, nanotron, datatrove, Tinker Cookbook, TRL/PEFT, DeepSpeed, Ray, and others are external connections encountered during reading; they are not counted among this round's 20 independent clones, and not all third-party dependencies were recursively cloned. SkyRL and nanotron are priority candidates for future expansion because they supply the runner code missing from APEX and SmolLM, respectively.
+SkyRL, vLLM, nanotron, datatrove, Tinker Cookbook, TRL/PEFT, DeepSpeed, Ray, and others are external connections encountered during reading; they are not counted among this round's 21 independent clones, and not all third-party dependencies were recursively cloned. SkyRL and nanotron are priority candidates for future expansion because they supply the runner code missing from APEX and SmolLM, respectively.
 
 <a id="claude-code--agent-sdk-的两类连接"></a>
 
